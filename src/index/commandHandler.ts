@@ -1,4 +1,4 @@
-import { Permissions } from "discord.js";
+import { Permissions, Message } from "discord.js";
 import messageContentExtType from "../schemas/messageContentExt";
 import languageType from "../schemas/language";
 import { petCalculator } from "../commands/user/petCalculator";
@@ -17,7 +17,6 @@ async function commandHandler(messageContentExt: messageContentExtType) {
 	var args = messageContentExt.args;
     var language: languageType = Object.assign({}, messageContentExt.language);
 	var prefix = messageContentExt.prefix;
-
 
     if (command == "petstats" || command == "pet" || command == "stats") {
         petCalculatorCalled.push(new petCalculator(messageContentExt));

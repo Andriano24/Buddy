@@ -24,7 +24,7 @@ var stunRecal: number, stunResist: number;
 
 export class petCalculator {
     public messageBotReply: any;
-    public timeAlive = 1000 * 60;
+    public timeToDelete = Date.now() + (1000 * 60);
     color = Math.round(Math.random() * 0xffffff);
     isRounded = false;
     onBaseTalents = true;
@@ -44,7 +44,7 @@ export class petCalculator {
     power: number;
 
 	constructor(messageContentExt: messageContentExtType) {
-        //console.log(messageContectExt.language);
+        console.log("time to delete: " + this.timeToDelete);
         this.message = messageContentExt.message;
         this.author = messageContentExt.author;
         this.args = messageContentExt.args;
@@ -61,7 +61,6 @@ export class petCalculator {
 
         this.message.reply({ embeds: [this.embed[1]], components: [this.buttons[1]], allowedMentions: { repliedUser: false } }).then(messageBotReply => {
             this.messageBotReply = messageBotReply;
-            //console.log(this.messageBotReply.id);
         });
     }
 
@@ -138,6 +137,7 @@ export class petCalculator {
         this.buttons[2] = this.buttonsCreate("more", true); // More Talents buttons with rounding
         this.embed[3] = this.embedCreate(message, "more", false); // Embed with more Talents and rounding
         this.buttons[3] = this.buttonsCreate("more", false); // More Talents buttons without rounding
+        this.buttons[4] = this.buttonsCreate("disabled", false); // Disabled buttons without rounding
     }
     
     embedCreate(message: Message, talents: string, rounding: boolean): MessageEmbed {

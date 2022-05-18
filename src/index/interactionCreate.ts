@@ -39,9 +39,9 @@ export async function interactionCreate(interaction: Interaction) {
                 petCalculator.isRounded = true;
                 await (interaction.message as Message).edit({embeds: [petCalculator.embed[2]], components: [petCalculator.buttons[2]], allowedMentions: { repliedUser: false }});
             }
+            petCalculator.timeToDelete = Date.now() + (1000 * 60);
             interaction.deferUpdate();
             return;
-            }
-        );
+        });
     }
 }

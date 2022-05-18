@@ -3,6 +3,7 @@ import config from "./config.json";
 import { ready } from "./index/ready";
 import { messageCreate } from "./index/messageCreate";
 import { interactionCreate } from "./index/interactionCreate";
+import { checkPetCalculatorCalled } from "./index/checkPetCalculatorCalled";
 
 const client = new Client({
 	intents: [
@@ -17,6 +18,8 @@ client.login(config.token);
 
 client.once("ready", async () => {
 	ready(client);
+
+	setInterval(checkPetCalculatorCalled, 1000 * 10);
 });
 
 client.on("messageCreate", async (message: Message) => {
