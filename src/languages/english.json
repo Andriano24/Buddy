@@ -1,0 +1,78 @@
+{
+    "Bot": {
+        "error": "An error has been occured",
+        "noPermissions": "You don't have permission to do that",
+        "commandNotFound": "Command not found",
+        "commandNotAvailable": "Command not yet available",
+        "noDMcommands": "Commands are not available on direct messages"
+    },
+    "PetCalculator": {
+        "wrongFormat": [
+            "Wrong format! The correct format is",
+            "petstats `Strength Intellect Agility Will Power`"
+        ],
+        "wrongStats": "Wrong stats! No stat can exceed 500 or be less than 0",
+        "strength": "Strength",
+        "intellect": "Intellect",
+        "agility": "Agility",
+        "will": "Will",
+        "power": "Power",
+        "petStats": "Pet Stats",
+        "baseTalents": "Base Talents",
+        "damageTalents": "Damage Talents",
+        "dealer": "Dealer",
+        "giver": "Giver",
+        "painBringer": "Pain Bringer",
+        "totalOf5Damage": "Total Of 5 Damage",
+        "resistTalents": "Resist Talents",
+        "ward": "Ward",
+        "proof": "Proof",
+        "defy": "Defy",
+        "accuracyTalents": "Accuracy Talents",
+        "sniper": "Sniper",
+        "shot": "Shot",
+        "eye": "Eye",
+        "pierceTalents": "Pierce Talents",
+        "armorBreaker": "Armor Breaker",
+        "armorPiercer": "Armor Piercer",
+        "moreTalents": "More Talents",
+        "critTalents": "Crit Talents",
+        "schoolAssailant": "School Assailant",
+        "schoolStriker": "School Striker",
+        "critHitter": "Crit Hitter",
+        "critStriker": "Crit Striker",
+        "blockTalents": "Block Talents",
+        "blocker": "Blocker",
+        "defender": "Defender",
+        "healthTalents": "Health Talents",
+        "healer": "Healer",
+        "healthy": "Healthy",
+        "lively": "Lively",
+        "medic": "Medic",
+        "healthAdd": "Health Add",
+        "healthBoost": "Health Boost",
+        "healthBounty": "Health Bounty",
+        "healthGift": "Health Gift",
+        "stunTalents": "Stan Talents",
+        "stunRecal": "Stun Recal",
+        "stunResist": "Stun Resist",
+        "embedTitle": "WIZARD101 PET STATS CALCULATOR",
+        "rounding": "Rounding"
+    },
+    "LanguageChange": {
+        "wrongFormat": [
+            "Wrong format! The correct format is",
+            "language `language of choice`"
+        ],
+        "noAvailableLanguage": "The arguments given do not match any available language",
+        "languageChanged": "The language has been successfully changed"
+    },
+    "PrefixChange": {
+        "wrongFormat": [
+            "Wrong format! The correct format is",
+            "prefix `prefix of choice`"
+        ],
+        "prefixSame": "The bot already has the same prefix",
+        "prefixChanged": "The prefix of bot changed to"
+    }
+}

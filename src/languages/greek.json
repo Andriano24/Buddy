@@ -1,0 +1,78 @@
+{
+    "Bot": {
+        "error": "",
+        "noPermissions": "Δεν έχεις πρόσβαση να το κάνεις αυτό",
+        "commandNotFound": "Η εντολή δεν βρέθηκε",
+        "commandNotAvailable": "Η εντολή δεν είναι ακόμα διαθέσιμη",
+        "noDMcommands": ""
+    },
+    "PetCalculator": {
+        "wrongFormat": [
+            "Λάθος φόρμα. Η σωστή φόρμα είναι",
+            "petstats `Δύναμη Νούς Σβελτάδα Θέληση Ισχύς`"
+        ],
+        "wrongStats": "Λάθος μπάρες! Καμία μπάρα δεν μπορεί να είναι μεγαλύτερη από 500 και μικρότερη από 0",
+        "strength": "Δύναμη",
+        "intellect": "Νούς",
+        "agility": "Σβελτάδα",
+        "will": "Θέληση",
+        "power": "Ισχύς",
+        "petStats": "Στατιστικά Κατοικιδίου",
+        "baseTalents": "Βασικά Ταλέντα",
+        "damageTalents": "Ταλέντα Ζημιάς",
+        "dealer": "Χάρισμα Σχολής",
+        "giver": "Πονοδότης / Σχολής",
+        "painBringer": "Πονοφόρος / Σχολής",
+        "totalOf5Damage": "Σύνολο 5 Ζημιών",
+        "resistTalents": "Ταλέντα Άμυνας",
+        "ward": "Προστασία Σχολής",
+        "proof": "Απρόσβλητος από Ξόρκι / Σχολή",
+        "defy": "Αψήφηση Ξορκιού / Σχολής",
+        "accuracyTalents": "Ταλέντα Ακρίβειας",
+        "sniper": "Ελεύθερος Σκοπευτής / Σχολής",
+        "shot": "Βολή / Σχολής",
+        "eye": "Μάτι / Σχολής",
+        "pierceTalents": "Ταλέντα Διάτρησης",
+        "armorBreaker": "Πανοπλιοσπάστης",
+        "armorPiercer": "Τρυπητής Πανοπλιών",
+        "moreTalents": "Περισσότερα ταλέντα",
+        "critTalents": "Ταλέντα Κρίσιμου",
+        "schoolAssailant": "Πολεμιστής Σχολής",
+        "schoolStriker": "Πυγμάχος Σχολής",
+        "critHitter": "Κριτικός",
+        "critStriker": "Αρχικριτικός",
+        "blockTalents": "Ταλεντα Μπλοκαρίσματος",
+        "blocker": "Μπλοκαριστής",
+        "defender": "Αμυνόμενος",
+        "healthTalents": "Ταλέντα Υγείας",
+        "healer": "Θεραπευτής",
+        "healthy": "Υγιές",
+        "lively": "Ζωντανό",
+        "medic": "Γιατρός",
+        "healthAdd": "Προσθήκη Υγείας",
+        "healthBoost": "Οπάλιο Ενίσχυσης Υγείας",
+        "healthBounty": "Γενναιοδωρία Υγείας",
+        "healthGift": "Οπάλιο Δώρου Υγείας",
+        "stunTalents": "Ταλέντα Αντίστασης Ζαλάδας",
+        "stunRecal": "Δεν Mπορεί να Nαρκωθεί",
+        "stunResist": "Ναρκώνεται Δύσκολα",
+        "embedTitle": "WIZARD101 PET STATS CALCULATOR",
+        "rounding": "Στρογγυλοποίηση"
+    },
+    "LanguageChange": {
+        "wrongFormat": [
+            "Λάθος φόρμα. Η σωστή φόρμα είναι",
+            "language `γλώσσα επιλογής"
+        ],
+        "noAvailableLanguage": "Τα στοιχεία που δώσατε δεν αντιστοιχούν σε καμία διαθέσιμη γλώσσα",
+        "languageChanged": "Η γλώσσα έχει αλλάξει με επιτυχία"
+    },
+    "PrefixChange": {
+        "wrongFormat": [
+            "Λάθος φόρμα. Η σωστή φόρμα είναι",
+            "prefix `prefix επιλογής`"
+        ],
+        "prefixSame": "Το bot έχει ήδη το ίδιο prefix",
+        "prefixChanged": "Το prefix του bot άλλαξε σε"
+    }
+}
