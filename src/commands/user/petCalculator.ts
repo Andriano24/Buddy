@@ -44,7 +44,6 @@ export class petCalculator {
     power: number;
 
 	constructor(messageContentExt: messageContentExtType) {
-        console.log("time to delete: " + this.timeToDelete);
         this.message = messageContentExt.message;
         this.author = messageContentExt.author;
         this.args = messageContentExt.args;
