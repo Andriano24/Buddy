@@ -136,7 +136,8 @@ export class petCalculator {
         this.buttons[2] = this.buttonsCreate("more", true); // More Talents buttons with rounding
         this.embed[3] = this.embedCreate(message, "more", false); // Embed with more Talents and rounding
         this.buttons[3] = this.buttonsCreate("more", false); // More Talents buttons without rounding
-        this.buttons[4] = this.buttonsCreate("disabled", false); // Disabled buttons without rounding
+        this.buttons[4] = this.buttonsCreate("disabled", true); // Disabled buttons with rounding
+        this.buttons[5] = this.buttonsCreate("disabled", false); // Disabled buttons without rounding
     }
     
     embedCreate(message: Message, talents: string, rounding: boolean): MessageEmbed {
@@ -294,7 +295,35 @@ export class petCalculator {
             }
         }
         else {
-            buttons = new MessageActionRow()
+            if(rounding) {
+                buttons = new MessageActionRow()
+                    .addComponents(
+                        new MessageButton()
+                            .setCustomId("baseTalents")
+                            .setEmoji("👊")
+                            .setLabel(`${this.language.PetCalculator.baseTalents}`)
+                            .setStyle("SECONDARY")
+                            .setDisabled(true)
+                    )
+                    .addComponents(
+                        new MessageButton()
+                            .setCustomId("moreTalents")
+                            .setEmoji("🤲")
+                            .setLabel(`${this.language.PetCalculator.moreTalents}`)
+                            .setStyle("SECONDARY")
+                            .setDisabled(true)
+                    )
+                    .addComponents(
+                        new MessageButton()
+                            .setCustomId("moreTalentsRoundingOn")
+                            .setEmoji("🔄")
+                            .setLabel(`${this.language.PetCalculator.rounding}`)
+                            .setStyle("SUCCESS")
+                            .setDisabled(true)
+                    );
+            }
+            else {
+                buttons = new MessageActionRow()
                     .addComponents(
                         new MessageButton()
                             .setCustomId("baseTalents")
@@ -319,6 +348,8 @@ export class petCalculator {
                             .setStyle("DANGER")
                             .setDisabled(true)
                     );
+            }
+            
         }
     
         return buttons;

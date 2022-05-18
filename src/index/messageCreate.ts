@@ -1,4 +1,4 @@
-import { Message, TextChannel } from "discord.js";
+import { Message } from "discord.js";
 import config from "../config.json";
 import guildSchema from "../schemas/guild";
 import { owner } from "../index/ready";
@@ -11,9 +11,9 @@ import commandHandler from "./commandHandler";
 export async function messageCreate(message: Message) {
 	if (message.author.bot || !message.inGuild()) return;
 
-	console.log(
-		`${message.guild} - #${(message.channel as TextChannel).name} => ${message.author.tag}: ${message.content}`
-	);
+	// console.log(
+	// 	`${message.guild} - #${(message.channel as TextChannel).name} => ${message.author.tag}: ${message.content}`
+	// );
 
 	var prefix: string = config.prefix;
 	var language: languageType;
