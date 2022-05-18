@@ -1,11 +1,11 @@
-import messageContentExt from "../../schemas/messageContentExt";
+import messageContentExtType from "../../schemas/messageContentExt";
 import guildSchema from "../../schemas/guild";
 import languageType from "../../schemas/language"
 import { owner } from "../../index/ready";
 
 export default { base }
 
-function base(messageContentExt: messageContentExt) {
+function base(messageContentExt: messageContentExtType) {
     var message = messageContentExt.message;
 	var args = messageContentExt.args;
     var language: languageType = Object.assign({}, messageContentExt.language);
