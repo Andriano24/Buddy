@@ -3,15 +3,14 @@
         "error": "An error has been occured",
         "noPermissions": "You don't have permission to do that",
         "commandNotFound": "Command not found",
-        "commandNotAvailable": "Command not yet available",
-        "noDMcommands": "Commands are not available on direct messages"
+        "commandNotAvailable": "Command not yet available"
     },
     "PetCalculator": {
         "wrongFormat": [
             "Wrong format! The correct format is",
             "petstats `Strength Intellect Agility Will Power`"
         ],
-        "wrongStats": "Wrong stats! No stat can exceed 500 or be less than 0",
+        "wrongStats": "Wrong stats! No stat can exceed 600 or be less than 0",
         "strength": "Strength",
         "intellect": "Intellect",
         "agility": "Agility",
