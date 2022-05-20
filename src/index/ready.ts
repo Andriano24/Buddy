@@ -1,6 +1,7 @@
 import { Client } from "discord.js";
 import mongoose from "mongoose";
 import config from "../config.json";
+import { checkPetCalculatorCalled } from "./checkPetCalculatorCalled";
 
 export var owner: any;
 
@@ -21,4 +22,6 @@ export async function ready(client: Client) {
 			console.log(err);
 			owner?.send(err);
 		})
+
+	setInterval(checkPetCalculatorCalled, 1000 * 10);
 }
