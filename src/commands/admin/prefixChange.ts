@@ -1,14 +1,14 @@
-import messageContentExtType from "../../schemas/messageContentExt";
+import MessageContentExt from "../../types/messageContentExt";
 import guildSchema from "../../schemas/guild";
-import languageType from "../../schemas/language"
+import Language from "../../types/language"
 import { owner } from "../../index/ready";
 
 export default { base }
 
-function base(messageContentExt: messageContentExtType) {
+function base(messageContentExt: MessageContentExt) {
     var message = messageContentExt.message;
 	var args = messageContentExt.args;
-    var language: languageType = Object.assign({}, messageContentExt.language);
+    var language: Language = Object.assign({}, messageContentExt.language);
 	var prefix = messageContentExt.prefix;
 
     if (args.length != 1) {
@@ -19,18 +19,18 @@ function base(messageContentExt: messageContentExtType) {
     guildSchema.findOne({ guild_id: message.guildId }, (err: any, guild: any) => {
         if (err) {
             owner?.send(err);
-            message.reply({ content: "An error has been occured.", allowedMentions: { repliedUser: false } });
+            message.reply({ content: `${language.Bot.error}`, allowedMentions: { repliedUser: false } });
             return;
         }
 
         guild.save((err: any) => {
             if (err) {
                 owner?.send(err);
-            message.reply({ content: "An error has been occured.", allowedMentions: { repliedUser: false } });
+                message.reply({ content: `${language.Bot.error}`, allowedMentions: { repliedUser: false } });
                 return;
             }
 
-            message.reply({ content: `The prefix has been set to ${guild.prefix}.`, allowedMentions: { repliedUser: false } });
+            message.reply({ content: `${language.PrefixChange.prefixChanged} ${guild.prefix}.`, allowedMentions: { repliedUser: false } });
         })
     })
 }

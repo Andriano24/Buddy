@@ -1,6 +1,6 @@
-import { ColorResolvable, Message, MessageActionRow, MessageButton, MessageEmbed } from "discord.js";
-import messageContentExtType from "../../schemas/messageContentExt";
-import languageType from "../../schemas/language"
+import { Message, MessageActionRow, MessageButton, MessageEmbed } from "discord.js";
+import MessageContentExt from "../../types/messageContentExt";
+import Language from "../../types/language"
 
 var damageTalents: string, resistTalents: string, accuracyTalents: string, pierceTalents: string, critTalents: string, blockTalents: string, healthTalents: string, stunTalents: string;
 
@@ -31,8 +31,7 @@ export class petCalculator {
     message: Message;
     author: string;
     args: string[];
-	language: languageType;
-	prefix: string;
+	language: Language;
 
     embed: MessageEmbed[] = [];
     buttons: MessageActionRow[] = [];
@@ -43,12 +42,11 @@ export class petCalculator {
     will: number;
     power: number;
 
-	constructor(messageContentExt: messageContentExtType) {
+	constructor(messageContentExt: MessageContentExt) {
         this.message = messageContentExt.message;
         this.author = messageContentExt.author;
         this.args = messageContentExt.args;
         this.language = Object.assign({}, messageContentExt.language);;
-        this.prefix = messageContentExt.prefix;
 
         this.strength = +this.args[0];
         this.intellect = +this.args[1];
@@ -153,7 +151,7 @@ export class petCalculator {
             .setColor(this.color)
             .setTitle(`:magic_wand: **${this.language.PetCalculator.embedTitle}** :magic_wand:`)
             .setAuthor({ name: message.author.tag, iconURL: `${message.author.avatarURL()}` })
-            .setDescription(`**${this.language.PetCalculator.petStats}**: ${this.strength}, ${this.intellect}, ${this.agility}, ${this.will}, ${this.power}\n\u200B`)
+            .setDescription(`**${this.language.PetCalculator.petStats}**: :muscle: ${this.strength}, :brain: ${this.intellect}, :athletic_shoe: ${this.agility}, :handshake: ${this.will}, :zap: ${this.power}\n\u200B`)
             .addFields(
                 { name: `${this.language.PetCalculator.damageTalents}`, value: `${damageTalents}`, inline: true },
                 { name: `${this.language.PetCalculator.resistTalents}`, value: `${resistTalents}`, inline: true },
@@ -171,7 +169,7 @@ export class petCalculator {
             .setColor(this.color)
             .setTitle(`:magic_wand: **${this.language.PetCalculator.embedTitle}** :magic_wand:`)
             .setAuthor({ name: message.author.tag, iconURL: `${message.author.avatarURL()}` })
-            .setDescription(`**${this.language.PetCalculator.petStats}**: ${this.strength}, ${this.intellect}, ${this.agility}, ${this.will}, ${this.power}\n\u200B`)
+            .setDescription(`**${this.language.PetCalculator.petStats}**: :muscle: ${this.strength}, :brain: ${this.intellect}, :athletic_shoe: ${this.agility}, :handshake: ${this.will}, :zap: ${this.power}\n\u200B`)
             .addFields(
                 { name: `${this.language.PetCalculator.critTalents}`, value: `${critTalents}`, inline: true },
                 { name: `${this.language.PetCalculator.blockTalents}`, value: `${blockTalents}`, inline: true },
@@ -349,9 +347,8 @@ export class petCalculator {
                             .setDisabled(true)
                     );
             }
-            
         }
-    
+
         return buttons;
     }
 }

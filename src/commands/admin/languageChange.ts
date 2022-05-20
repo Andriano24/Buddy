@@ -1,16 +1,16 @@
-import messageContentExtType from "../../schemas/messageContentExt";
+import MessageContentExt from "../../types/messageContentExt";
 import guildSchema from "../../schemas/guild";
-import languageType from "../../schemas/language"
+import Language from "../../types/language"
 import { owner } from "../../index/ready";
 import english from "../../languages/english.json";
 import greek from "../../languages/greek.json";
 
 export default { base }
 
-function base(messageContentExt: messageContentExtType) {
+function base(messageContentExt: MessageContentExt) {
     var message = messageContentExt.message;
 	var args = messageContentExt.args;
-    var language: languageType = Object.assign({}, messageContentExt.language);
+    var language: Language = Object.assign({}, messageContentExt.language);
 	var prefix = messageContentExt.prefix;
 
     if (args.length != 1) {
@@ -22,7 +22,7 @@ function base(messageContentExt: messageContentExtType) {
         if (err) {
             console.log(err);
             owner?.send(err);
-            message.reply({ content: "An error has been occured.", allowedMentions: { repliedUser: false } });
+            message.reply({ content: `${language.Bot.error}`, allowedMentions: { repliedUser: false } });
             return;
         }
 
@@ -43,7 +43,7 @@ function base(messageContentExt: messageContentExtType) {
             if(err) {
                 console.log(err);
                 owner?.send(err);
-                message.reply({ content: "An error has been occured.", allowedMentions: { repliedUser: false } });
+                message.reply({ content: `${language.Bot.error}`, allowedMentions: { repliedUser: false } });
                 return;
             }
 

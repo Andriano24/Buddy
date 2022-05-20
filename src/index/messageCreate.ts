@@ -2,8 +2,8 @@ import { Message } from "discord.js";
 import config from "../config.json";
 import guildSchema from "../schemas/guild";
 import { owner } from "../index/ready";
-import messageContentExtType from "../schemas/messageContentExt";
-import languageType from "../schemas/language";
+import MessageContentExt from "../types/messageContentExt";
+import Language from "../types/language";
 import english from "../languages/english.json";
 import greek from "../languages/greek.json";
 import commandHandler from "./commandHandler";
@@ -16,7 +16,7 @@ export async function messageCreate(message: Message) {
 	// );
 
 	var prefix: string = config.prefix;
-	var language: languageType;
+	var language: Language;
 
 	guildSchema.findOne({ guildId: message.guildId }, (err: any, guild: any) => {
 		if (err) {
@@ -49,7 +49,7 @@ export async function messageCreate(message: Message) {
 			});
 		}
 
-		if (guild.language === "en") {
+		if (guild.language == "en") {
 			language = Object.assign({}, english);
 		}
 		if (guild.language == "gr") {
@@ -65,7 +65,7 @@ export async function messageCreate(message: Message) {
 			.toLowerCase()
 			.split(/\s+/);
 
-		var messageContentExt: messageContentExtType = {
+		var messageContentExt: MessageContentExt = {
 			message: message,
 			author: message.author.id,
 			command: command,
