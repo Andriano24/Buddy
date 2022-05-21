@@ -68,7 +68,7 @@ type Language = {
     };
     PrefixChange: {
         wrongFormat: string[];
-        prefixSame: string;
+        samePrefix: string;
         prefixChanged: string;
     };
 }

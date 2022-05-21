@@ -78,7 +78,7 @@
             "Wrong format! The correct format is",
             "prefix `prefix of choice`"
         ],
-        "prefixSame": "The bot already has the same prefix",
+        "samePrefix": "The bot already has the same prefix",
         "prefixChanged": "The prefix of bot changed to"
     }
 }

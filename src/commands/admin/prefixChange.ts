@@ -16,12 +16,19 @@ function base(messageContentExt: MessageContentExt) {
 		return;
     }
 
-    guildSchema.findOne({ guild_id: message.guildId }, (err: any, guild: any) => {
+    guildSchema.findOne({ guildId: message.guildId }, (err: any, guild: any) => {
         if (err) {
             owner?.send(err);
             message.reply({ content: `${language.Bot.error}`, allowedMentions: { repliedUser: false } });
             return;
         }
+
+        if (guild.prefix == args[0]) {
+            message.reply({ content: `${language.PrefixChange.samePrefix[0]}.`, allowedMentions: { repliedUser: false } });
+            return;
+        }
+
+        guild.prefix = args[0];
 
         guild.save((err: any) => {
             if (err) {

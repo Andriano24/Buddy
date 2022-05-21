@@ -71,7 +71,7 @@ export async function messageCreate(message: Message) {
 			command: command,
 			args: args,
 			language: language,
-			prefix: prefix,
+			prefix: prefix
 		};
 
 		commandHandler(messageContentExt);

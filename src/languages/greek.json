@@ -78,7 +78,7 @@
             "Λάθος φόρμα. Η σωστή φόρμα είναι",
             "prefix `prefix επιλογής`"
         ],
-        "prefixSame": "Το bot έχει ήδη το ίδιο prefix",
+        "samePrefix": "Το bot έχει ήδη το ίδιο prefix",
         "prefixChanged": "Το prefix του bot άλλαξε σε"
     }
 }
