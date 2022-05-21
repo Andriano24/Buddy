@@ -20,17 +20,16 @@ function base(messageContentExt: MessageContentExt) {
 
     guildSchema.findOne({ guildId: message.guildId }, (err: any, guild: any) => {
         if (err) {
-            console.log(err);
             owner?.send(err);
             message.reply({ content: `${language.Bot.error}`, allowedMentions: { repliedUser: false } });
             return;
         }
 
-        if (args[0] == "en" || args[0] == "english") {
+        if (args[0] == "en") {
             guild.language = "en";
             Object.assign(language, english);
         }
-        else if (args[0] == "gr" || args[0] == "greek") {
+        else if (args[0] == "gr") {
             guild.language = "gr";
             Object.assign(language, greek);
         }
@@ -41,7 +40,6 @@ function base(messageContentExt: MessageContentExt) {
 
         guild.save((err: any) => {
             if(err) {
-                console.log(err);
                 owner?.send(err);
                 message.reply({ content: `${language.Bot.error}`, allowedMentions: { repliedUser: false } });
                 return;
