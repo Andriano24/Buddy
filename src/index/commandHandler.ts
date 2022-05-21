@@ -19,23 +19,38 @@ async function commandHandler(messageContentExt: MessageContentExt) {
 	var prefix = messageContentExt.prefix;
 
     if (command == "petstats" || command == "pet" || command == "stats") {
-        if (args.length != 5) {
-            message.reply({ content: `${language.PetCalculator.wrongFormat[0]}: ${prefix}${language.PetCalculator.wrongFormat[1]}.`, allowedMentions: { repliedUser: false } });
-            return;
+        if (args.length == 5) {
+            if (isNaN(+args[0]) || isNaN(+args[1]) ||isNaN(+args[2]) ||isNaN(+args[3]) ||isNaN(+args[4])) {
+                message.reply({ content: `${language.PetCalculator.wrongFormat[0]}: ${prefix}${language.PetCalculator.wrongFormat[1]}.`, allowedMentions: { repliedUser: false } });
+                return;
+            }
+
+            if ((+args[0] < 5 || +args[0] > 600) || (+args[1] < 5 || +args[1] > 600) || (+args[2] < 5 || +args[2] > 600) || (+args[3] < 5 || +args[3] > 600) || (+args[4] < 5 || +args[4] > 600)) {
+                message.reply({ content: `${language.PetCalculator.wrongStats}.`, allowedMentions: { repliedUser: false } });
+                return;
+            }
         }
-        if ((+args[0] < 0 || +args[0] > 600) || (+args[1] < 0 || +args[1] > 600) || (+args[2] < 0 || +args[2] > 600) || (+args[3] < 0 || +args[3] > 600) || (+args[4] < 0 || +args[4] > 600)) {
-            message.reply({ content: `${language.PetCalculator.wrongStats}.`, allowedMentions: { repliedUser: false } });
-            return;
+        else if (args.length == 8) {
+            if (isNaN(+args[0]) || isNaN(+args[1]) || isNaN(+args[2]) || isNaN(+args[3]) || isNaN(+args[4]) || isNaN(+args[5]) || isNaN(+args[6]) || isNaN(+args[7])) {
+                message.reply({ content: `${language.PetCalculator.wrongFormatExtra[0]}: ${prefix}${language.PetCalculator.wrongFormatExtra[1]}.`, allowedMentions: { repliedUser: false } });
+                return;
+            }
+
+            if ((+args[0] < 5 || +args[0] > 600) || (+args[1] < 5 || +args[1] > 600) || (+args[2] < 5 || +args[2] > 600) || (+args[3] < 5 || +args[3] > 600) || (+args[4] < 5 || +args[4] > 600) || 
+                (+args[5] < 0 || +args[5] > 6) || (+args[6] < 0 || +args[6] > 6) || (+args[7] < 0 || +args[7] > 6) || (+args[5] + +args[6] + +args[7] > 6)) {
+                message.reply({ content: `${language.PetCalculator.wrongStatsExtra}.`, allowedMentions: { repliedUser: false } });
+                return;
+            }
         }
-        if (isNaN(+args[0]) || isNaN(+args[1]) ||isNaN(+args[2]) ||isNaN(+args[3]) ||isNaN(+args[4])) {
-            message.reply({ content: `${language.PetCalculator.wrongFormat[0]}: ${prefix}${language.PetCalculator.wrongFormat[1]}.`, allowedMentions: { repliedUser: false } });
+        else {
+            message.reply({ content: `${language.PetCalculator.wrongFormat[0]}:\n${prefix}${language.PetCalculator.wrongFormat[1]} ${language.PetCalculator.or}\n${prefix}${language.PetCalculator.wrongFormatExtra[1]}.`, allowedMentions: { repliedUser: false } });
             return;
         }
         
         petCalculatorCalled.push(new petCalculator(messageContentExt));
     }
     else if (command == "language" || command == "lang") {
-        if(message.member?.permissions.has(Permissions.FLAGS.ADMINISTRATOR)) {
+        if (message.member?.permissions.has(Permissions.FLAGS.ADMINISTRATOR)) {
             languageChange.base(messageContentExt);
         }
         else {
@@ -43,7 +58,7 @@ async function commandHandler(messageContentExt: MessageContentExt) {
         }
     }
     else if (command == "prefix") {
-        if(message.member?.permissions.has(Permissions.FLAGS.ADMINISTRATOR)) {
+        if (message.member?.permissions.has(Permissions.FLAGS.ADMINISTRATOR)) {
             prefixChange.base(messageContentExt);
         }
         else {
