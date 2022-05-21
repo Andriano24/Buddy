@@ -9,7 +9,10 @@ type Language = {
     };
     PetCalculator: {
         wrongFormat: string[];
+        wrongFormatExtra: string[];
         wrongStats: string;
+        or: string,
+        wrongStatsExtra: string;
         strength: string;
         intellect: string;
         agility: string;
@@ -21,7 +24,7 @@ type Language = {
         dealer: string;
         giver: string;
         painBringer: string;
-        totalOf5Damage: string;
+        totalDamage: string;
         resistTalents: string;
         ward: string;
         proof: string;

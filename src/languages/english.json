@@ -8,9 +8,15 @@
     "PetCalculator": {
         "wrongFormat": [
             "Wrong format! The correct format is",
-            "petstats `Strength Intellect Agility Will Power`"
+            "petstats `[Strength] [Intellect] [Agility] [Will] [Power]`"
+        ],
+        "wrongFormatExtra": [
+            "Wrong format! The correct format is",
+            "petstats `[Strength] [Intellect] [Agility] [Will] [Power] [Number of Dealer] [Number of Giver] [Number of Pain Bringer]`"
         ],
         "wrongStats": "Wrong stats! No stat can exceed 600 or be less than 0",
+        "or": "or",
+        "wrongStatsExtra": "Wrong stats! No stat can exceed 600 or be less than 0, no number of dealer/giver/painbringer can exceed 6 or be less than 0 and their summary cannot exceed 6",
         "strength": "Strength",
         "intellect": "Intellect",
         "agility": "Agility",
@@ -22,7 +28,7 @@
         "dealer": "Dealer",
         "giver": "Giver",
         "painBringer": "Pain Bringer",
-        "totalOf5Damage": "Total Of 5 Damage",
+        "totalDamage": "Total Damage",
         "resistTalents": "Resist Talents",
         "ward": "Ward",
         "proof": "Proof",
