@@ -185,7 +185,7 @@ export class petCalculator {
         }
         else {
             embed
-                .setDescription(`**${this.language.PetCalculator.petStats}**: :muscle: ${this.strength}, :brain: ${this.intellect}, :athletic_shoe: ${this.agility}, :handshake: ${this.will}, :zap: ${this.power}\n:anatomical_heart: [${this.args[5]}/${this.args[6]}/${this.args[7]}]\n\u200B`)
+                .setDescription(`**${this.language.PetCalculator.petStats}**: :muscle: ${this.strength}, :brain: ${this.intellect}, :athletic_shoe: ${this.agility}, :handshake: ${this.will}, :zap: ${this.power}\n**${this.language.PetCalculator.moreStats}**: :anatomical_heart: [${this.args[5]}, ${this.args[6]}, ${this.args[7]}]\n\u200B`)
         }
         
         if (talents == "base") {

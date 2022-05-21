@@ -19,6 +19,7 @@ type Language = {
         will: string;
         power: string;
         petStats: string;
+        moreStats: string;
         baseTalents: string;
         damageTalents: string;
         dealer: string;
