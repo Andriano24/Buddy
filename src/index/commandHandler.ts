@@ -1,9 +1,10 @@
-import { Permissions } from "discord.js";
+import { Guild, GuildMember, Permissions } from "discord.js";
 import MessageContentExt from "../types/messageContentExt";
 import Language from "../types/language";
 import { petCalculator } from "../commands/user/petCalculator";
 import languageChange from "../commands/admin/languageChange";
 import prefixChange from "../commands/admin/prefixChange";
+import { botClient } from "./ready";
 
 var petCalculatorCalled: any = [];
 
@@ -13,10 +14,22 @@ export default commandHandler;
 
 async function commandHandler(messageContentExt: MessageContentExt) {
     var message = messageContentExt.message;
+
+    if(message.channel.type === "DM") {
+        return;
+    }
+
+    var guild = botClient.guilds.cache.get((message.guild as Guild).id);
+    
+    if (!((guild as Guild).me as GuildMember).permissions.has(Permissions.FLAGS.SEND_MESSAGES)) {
+        return;
+    }
+    
 	var command = messageContentExt.command;
 	var args = messageContentExt.args;
     var language: Language = Object.assign({}, messageContentExt.language);
 	var prefix = messageContentExt.prefix;
+
 
     if (command == "petstats" || command == "pet" || command == "stats") {
         if (args.length == 5) {

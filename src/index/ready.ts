@@ -5,10 +5,13 @@ import { checkPetCalculatorCalled } from "./checkPetCalculatorCalled";
 
 export var owner: any;
 
+export var botClient: Client;
+
 export async function ready(client: Client) {
     if (client.user) {
 		console.log(`Logged in as "${client.user.tag}"!`);
 		owner = client.users.cache.get("299587516082683914");
+		botClient = client;
 	}
 
 	await mongoose
