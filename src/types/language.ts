@@ -24,7 +24,7 @@ type Language = {
         damageTalents: string;
         dealer: string;
         giver: string;
-        painBringer: string;
+        bringer: string;
         totalDamage: string;
         resistTalents: string;
         ward: string;
@@ -41,8 +41,8 @@ type Language = {
         critTalents: string;
         schoolAssailant: string;
         schoolStriker: string;
-        critHitter: string;
-        critStriker: string;
+        criticalHitter: string;
+        criticalStriker: string;
         blockTalents: string;
         blocker: string;
         defender: string;
@@ -56,8 +56,8 @@ type Language = {
         healthBounty: string;
         healthGift: string;
         stunTalents: string;
-        stunRecal: string;
-        stunResist: string;
+        stunRecalcitrant: string;
+        stunResistance: string;
         embedTitle: string;
         rounding: string;
     };

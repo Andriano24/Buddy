@@ -4,7 +4,7 @@ import Language from "../../types/language"
 
 var damageTalents: string, resistTalents: string, accuracyTalents: string, pierceTalents: string, critTalents: string, blockTalents: string, healthTalents: string, stunTalents: string;
 
-var dealer: number, giver: number, painBringer: number, totalDamage: number;
+var dealer: number, giver: number, bringer: number, totalDamage: number;
 
 var ward: number, proof: number, defy: number;
 
@@ -12,7 +12,7 @@ var sniper: number, shot: number, eye: number;
 
 var armorBreaker: number, armorPiercer: number;
 
-var schoolAssailant: number, schoolStriker: number, critHitter: number, critStriker: number;
+var schoolAssailant: number, schoolStriker: number, criticalHitter: number, criticalStriker: number;
 
 var blocker: number, defender: number;
 
@@ -20,7 +20,7 @@ var healer: number, healthy: number, lively: number, medic: number;
 
 var healthAdd: number, healthBoost: number, healthBounty: number, healthGift: number;
 
-var stunRecal: number, stunResist: number;
+var stunRecalcitrant: number, stunResistance: number;
 
 export class petCalculator {
     public messageBotReply: any;
@@ -63,8 +63,8 @@ export class petCalculator {
     calculateTalents() {
         dealer = ((2 * this.strength + 2 * this.will + this.power) * 0.0075);
         giver = (((2 * this.strength) + (2 * this.will) + (this.power)) / 200);
-        painBringer = (((2 * this.strength) + (2 * this.will) + (this.power)) / 400);
-        totalDamage = ((+this.args[5] * dealer) + (+this.args[6] * giver) + (+this.args[7] * painBringer));
+        bringer = (((2 * this.strength) + (2 * this.will) + (this.power)) / 400);
+        totalDamage = ((+this.args[5] * dealer) + (+this.args[6] * giver) + (+this.args[7] * bringer));
     
         ward = (((2 * this.strength) + (2 * this.agility) + (this.power)) * 0.012);
         proof = (((2 * this.strength) + (2 * this.agility) + (this.power)) / 125);
@@ -79,8 +79,8 @@ export class petCalculator {
     
         schoolAssailant = (((2 * this.agility) + (2 * this.will) + this.power) / 40);
         schoolStriker = (((2 * this.agility) + (2 * this.will) + this.power) * 0.02); // 3/150 = 0.02
-        critHitter = (((2 * this.agility) + (2 * this.will) + this.power) * 0.018); // ! 9/500 = 0.018
-        critStriker = (((2 * this.agility) + (2 * this.will) + this.power) * 0.024); // 3/125 = 0.024
+        criticalHitter = (((2 * this.agility) + (2 * this.will) + this.power) * 0.018); // ! 9/500 = 0.018
+        criticalStriker = (((2 * this.agility) + (2 * this.will) + this.power) * 0.024); // 3/125 = 0.024
         
         blocker = (((2 * this.intellect) + (2 * this.will) + this.power) * 0.018); // ! 9/500 = 0.018
         defender = (((2 * this.intellect) + (2 * this.will) + this.power) * 0.024);
@@ -95,15 +95,15 @@ export class petCalculator {
         healthBounty = (((2 * this.agility) + (2 * this.will) + this.power) * 0.12);
         healthGift = (((2 * this.agility) + (2 * this.will) + this.power) / 10);
     
-        stunRecal = (((2 * this.strength) + (2 * this.intellect) + (this.power)) / 125);
-        stunResist = (((2 * this.strength) + (2 * this.intellect) + (this.power)) / 250);
+        stunRecalcitrant = (((2 * this.strength) + (2 * this.intellect) + (this.power)) / 125);
+        stunResistance = (((2 * this.strength) + (2 * this.intellect) + (this.power)) / 250);
     }
 
     printType(rounding: boolean) {
         if(rounding) {
             const wizardFloor = 1 - 0.5125; // 0.4875
 
-            damageTalents = `${this.language.PetCalculator.dealer}: ` + Math.floor(dealer + wizardFloor) + "%\n" + `${this.language.PetCalculator.giver}: ` + Math.floor(giver + wizardFloor) + "%\n" + `${this.language.PetCalculator.painBringer}: ` + Math.floor(painBringer + wizardFloor) + "%\n";
+            damageTalents = `${this.language.PetCalculator.dealer}: ` + Math.floor(dealer + wizardFloor) + "%\n" + `${this.language.PetCalculator.giver}: ` + Math.floor(giver + wizardFloor) + "%\n" + `${this.language.PetCalculator.bringer}: ` + Math.floor(bringer + wizardFloor) + "%\n";
 
             if(this.args.length == 8) {
                 damageTalents += `${this.language.PetCalculator.totalDamage}: ` + Math.floor(totalDamage + wizardFloor) + "%\n";
@@ -112,13 +112,13 @@ export class petCalculator {
             resistTalents = `${this.language.PetCalculator.ward}: ` + Math.floor(ward + wizardFloor) + "%\n" + `${this.language.PetCalculator.proof}: ` + Math.floor(proof + wizardFloor) + "%\n" + `${this.language.PetCalculator.defy}: ` + Math.floor(defy + wizardFloor) + "%\n";
             accuracyTalents = `${this.language.PetCalculator.sniper}: ` + Math.floor(sniper + wizardFloor) + "%\n" + `${this.language.PetCalculator.shot}: ` + Math.floor(shot + wizardFloor) + "%\n" + `${this.language.PetCalculator.eye}: ` + Math.floor(eye + wizardFloor) + "%\n";
             pierceTalents = `${this.language.PetCalculator.armorBreaker}: ` + Math.floor(armorBreaker + wizardFloor) + "%\n" + `${this.language.PetCalculator.armorPiercer}: ` + Math.floor(armorPiercer + wizardFloor) + "%\n";
-            critTalents = `${this.language.PetCalculator.schoolAssailant}: ` + Math.floor(schoolAssailant + wizardFloor) + "%\n" + `${this.language.PetCalculator.schoolStriker}: ` + Math.floor(schoolStriker + wizardFloor) + "%\n" + `${this.language.PetCalculator.critHitter}: ` + Math.floor(critHitter + wizardFloor) + "%\n" + `${this.language.PetCalculator.critStriker}: ` + Math.floor(critStriker + wizardFloor) + "%\n";
+            critTalents = `${this.language.PetCalculator.schoolAssailant}: ` + Math.floor(schoolAssailant + wizardFloor) + "%\n" + `${this.language.PetCalculator.schoolStriker}: ` + Math.floor(schoolStriker + wizardFloor) + "%\n" + `${this.language.PetCalculator.criticalHitter}: ` + Math.floor(criticalHitter + wizardFloor) + "%\n" + `${this.language.PetCalculator.criticalStriker}: ` + Math.floor(criticalStriker + wizardFloor) + "%\n";
             blockTalents = `${this.language.PetCalculator.blocker}: ` + Math.floor(blocker + wizardFloor) + "%\n" + `${this.language.PetCalculator.defender}: ` + Math.floor(defender + wizardFloor) + "%\n";
             healthTalents = `${this.language.PetCalculator.healer}: ` + Math.floor(healer + wizardFloor) + "%\n" + `${this.language.PetCalculator.healthy}: ` + Math.floor(healthy + wizardFloor) + "%\n" + `${this.language.PetCalculator.lively}: ` + Math.floor(lively + wizardFloor) + "%\n" + `${this.language.PetCalculator.medic}: ` + Math.floor(medic + wizardFloor) + "%\n" + `${this.language.PetCalculator.healthAdd}: ` + Math.floor(healthAdd + wizardFloor) + "\n" + `${this.language.PetCalculator.healthBoost}: ` + Math.floor(healthBoost + wizardFloor) + "\n" + `${this.language.PetCalculator.healthBounty}: ` + Math.floor(healthBounty + wizardFloor) + "\n" + `${this.language.PetCalculator.healthGift}: ` + Math.floor(healthGift + wizardFloor) + "\n";
-            stunTalents = `${this.language.PetCalculator.stunRecal}: ` + Math.floor(stunRecal + wizardFloor) + "%\n" + `${this.language.PetCalculator.stunResist}: ` + Math.floor(stunResist + wizardFloor) + "%\n";
+            stunTalents = `${this.language.PetCalculator.stunRecalcitrant}: ` + Math.floor(stunRecalcitrant + wizardFloor) + "%\n" + `${this.language.PetCalculator.stunResistance}: ` + Math.floor(stunResistance + wizardFloor) + "%\n";
         }
         else {
-            damageTalents = `${this.language.PetCalculator.dealer}: ` + this.decimalPlacesFixer(dealer) + "%\n" + `${this.language.PetCalculator.giver}: ` + this.decimalPlacesFixer(giver) + "%\n" + `${this.language.PetCalculator.painBringer}: ` + this.decimalPlacesFixer(painBringer) + "%\n";
+            damageTalents = `${this.language.PetCalculator.dealer}: ` + this.decimalPlacesFixer(dealer) + "%\n" + `${this.language.PetCalculator.giver}: ` + this.decimalPlacesFixer(giver) + "%\n" + `${this.language.PetCalculator.bringer}: ` + this.decimalPlacesFixer(bringer) + "%\n";
             
             if(this.args.length == 8) {
                 damageTalents += `${this.language.PetCalculator.totalDamage}: ` + this.decimalPlacesFixer(totalDamage) + "%\n";
@@ -127,10 +127,10 @@ export class petCalculator {
             resistTalents = `${this.language.PetCalculator.ward}: ` + this.decimalPlacesFixer(ward) + "%\n" + `${this.language.PetCalculator.proof}: ` + this.decimalPlacesFixer(proof) + "%\n" + `${this.language.PetCalculator.defy}: ` + this.decimalPlacesFixer(defy) + "%\n";
             accuracyTalents = `${this.language.PetCalculator.sniper}: ` + this.decimalPlacesFixer(sniper) + "%\n" + `${this.language.PetCalculator.shot}: ` + this.decimalPlacesFixer(shot) + "%\n" + `${this.language.PetCalculator.eye}: ` + this.decimalPlacesFixer(eye) + "%\n";
             pierceTalents = `${this.language.PetCalculator.armorBreaker}: ` + this.decimalPlacesFixer(armorBreaker) + "%\n" + `${this.language.PetCalculator.armorPiercer}: ` + this.decimalPlacesFixer(armorPiercer) + "%\n";
-            critTalents = `${this.language.PetCalculator.schoolAssailant}: ` + this.decimalPlacesFixer(schoolAssailant) + "%\n" + `${this.language.PetCalculator.schoolStriker}: ` + this.decimalPlacesFixer(schoolStriker) + "%\n" + `${this.language.PetCalculator.critHitter}: ` + this.decimalPlacesFixer(critHitter) + "%\n" + `${this.language.PetCalculator.critStriker}: ` + this.decimalPlacesFixer(critHitter) + "%\n";
+            critTalents = `${this.language.PetCalculator.schoolAssailant}: ` + this.decimalPlacesFixer(schoolAssailant) + "%\n" + `${this.language.PetCalculator.schoolStriker}: ` + this.decimalPlacesFixer(schoolStriker) + "%\n" + `${this.language.PetCalculator.criticalHitter}: ` + this.decimalPlacesFixer(criticalHitter) + "%\n" + `${this.language.PetCalculator.criticalStriker}: ` + this.decimalPlacesFixer(criticalStriker) + "%\n";
             blockTalents = `${this.language.PetCalculator.blocker}: ` + this.decimalPlacesFixer(blocker) + "%\n" + `${this.language.PetCalculator.defender}: ` + this.decimalPlacesFixer(defender) + "%\n";
             healthTalents = `${this.language.PetCalculator.healer}: ` + this.decimalPlacesFixer(healer) + "%\n" + `${this.language.PetCalculator.healthy}: ` + this.decimalPlacesFixer(healthy) + "%\n" + `${this.language.PetCalculator.lively}: ` + this.decimalPlacesFixer(lively) + "%\n" + `${this.language.PetCalculator.medic}: ` + this.decimalPlacesFixer(medic) + "%\n" + `${this.language.PetCalculator.healthAdd}: ` + this.decimalPlacesFixer(healthAdd) + "\n" + `${this.language.PetCalculator.healthBoost}: ` + this.decimalPlacesFixer(healthBoost) + "\n" + `${this.language.PetCalculator.healthBounty}: ` + this.decimalPlacesFixer(healthBounty) + "\n" + `${this.language.PetCalculator.healthGift}: ` + this.decimalPlacesFixer(healthGift) + "\n";
-            stunTalents = `${this.language.PetCalculator.stunRecal}: ` + this.decimalPlacesFixer(stunRecal) + "%\n" + `${this.language.PetCalculator.stunResist}: ` + this.decimalPlacesFixer(stunResist) + "%\n";
+            stunTalents = `${this.language.PetCalculator.stunRecalcitrant}: ` + this.decimalPlacesFixer(stunRecalcitrant) + "%\n" + `${this.language.PetCalculator.stunResistance}: ` + this.decimalPlacesFixer(stunResistance) + "%\n";
         }
     }
 
