@@ -1,10 +1,11 @@
 import { Guild, GuildMember, Permissions } from "discord.js";
-import MessageContentExt from "../types/messageContentExt";
+import MessageContent from "../types/messageContent";
 import Language from "../types/language";
 import { petCalculator } from "../commands/user/petCalculator";
 import languageChange from "../commands/admin/languageChange";
 import prefixChange from "../commands/admin/prefixChange";
-import { botClient } from "./ready";
+import shutdownBot from "../commands/owner/shutdownBot";
+import config from "../config.json"
 
 var petCalculatorCalled: any = [];
 
@@ -12,24 +13,26 @@ export { petCalculatorCalled };
 
 export default commandHandler;
 
-async function commandHandler(messageContentExt: MessageContentExt) {
-    var message = messageContentExt.message;
+async function commandHandler(messageContent: MessageContent) {
+    var message = messageContent.message;
+    var author = messageContent.author;
 
     if(message.channel.type === "DM") {
         return;
     }
-
-    var guild = botClient.guilds.cache.get((message.guild as Guild).id);
     
-    if (!((guild as Guild).me as GuildMember).permissions.has(Permissions.FLAGS.SEND_MESSAGES)) {
+    if (!message.guild?.me?.permissionsIn(message.channel)?.has(Permissions.FLAGS.SEND_MESSAGES)) {
         return;
     }
     
-	var command = messageContentExt.command;
-	var args = messageContentExt.args;
-    var language: Language = Object.assign({}, messageContentExt.language);
-	var prefix = messageContentExt.prefix;
-
+    if(!message.guild?.me?.permissionsIn(message.channel)?.has(Permissions.FLAGS.EMBED_LINKS)) {
+        return;
+    }
+    
+	var command = messageContent.command;
+	var args = messageContent.args;
+    var language: Language = Object.assign({}, messageContent.language);
+	var prefix = messageContent.prefix;
 
     if (command == "petstats" || command == "pet" || command == "stats") {
         if (args.length == 5) {
@@ -60,11 +63,11 @@ async function commandHandler(messageContentExt: MessageContentExt) {
             return;
         }
         
-        petCalculatorCalled.push(new petCalculator(messageContentExt));
+        petCalculatorCalled.push(new petCalculator(messageContent));
     }
     else if (command == "language" || command == "lang") {
         if (message.member?.permissions.has(Permissions.FLAGS.ADMINISTRATOR)) {
-            languageChange.base(messageContentExt);
+            languageChange.base(messageContent);
         }
         else {
             message.reply({ content: `${language.Bot.noPermissions}!`, allowedMentions: { repliedUser: false } });
@@ -72,7 +75,7 @@ async function commandHandler(messageContentExt: MessageContentExt) {
     }
     else if (command == "prefix") {
         if (message.member?.permissions.has(Permissions.FLAGS.ADMINISTRATOR)) {
-            prefixChange.base(messageContentExt);
+            prefixChange.base(messageContent);
         }
         else {
             message.reply({ content: `${language.Bot.noPermissions}!`, allowedMentions: { repliedUser: false } });
@@ -81,7 +84,16 @@ async function commandHandler(messageContentExt: MessageContentExt) {
     else if (command == "help") {
         message.reply({ content: `${language.Bot.commandNotAvailable}.`, allowedMentions: { repliedUser: false } });
     }
+    else if (command == "kill" || command == "shutdown" || command == "restart") {
+        if (author.id == config.ownerID) {
+            shutdownBot.base(messageContent);
+        }
+        else {
+            message.reply({ content: `You are not my owner...`, allowedMentions: { repliedUser: false } });
+        }
+    }
     else {
+        console.log(`Command ${command} not found.`);
         message.reply({ content: `${language.Bot.commandNotFound}.`, allowedMentions: { repliedUser: false } });
     }
 }

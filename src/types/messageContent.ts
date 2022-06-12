@@ -1,13 +1,14 @@
-import { Message } from "discord.js";
+import { Message, User } from "discord.js";
 import Language from "./language";
 
-export default MessageContentExt;
+export default MessageContent;
 
-type MessageContentExt = {
+type MessageContent = {
 	message: Message;
-	author: string;
+	author: User;
 	command: string;
 	args: string[];
 	language: Language;
+	lang: string;
 	prefix: string;
 };

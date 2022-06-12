@@ -1,15 +1,13 @@
-import MessageContentExt from "../../types/messageContentExt";
+import MessageContent from "../../types/messageContent";
 import guildSchema from "../../schemas/guild";
-import Language from "../../types/language"
-import { owner } from "../../index/ready";
 
 export default { base }
 
-function base(messageContentExt: MessageContentExt) {
-    var message = messageContentExt.message;
-	var args = messageContentExt.args;
-    var language: Language = Object.assign({}, messageContentExt.language);
-	var prefix = messageContentExt.prefix;
+function base(messageContent: MessageContent) {
+    var message = messageContent.message;
+	var args = messageContent.args;
+    var language = Object.assign({}, messageContent.language);
+	var prefix = messageContent.prefix;
 
     if (args.length != 1) {
         message.reply({ content: `${language.PrefixChange.wrongFormat[0]}: ${prefix}${language.PrefixChange.wrongFormat[1]}.`, allowedMentions: { repliedUser: false } });
@@ -18,8 +16,8 @@ function base(messageContentExt: MessageContentExt) {
 
     guildSchema.findOne({ guildId: message.guildId }, (err: any, guild: any) => {
         if (err) {
-            owner?.send(err);
-            message.reply({ content: `${language.Bot.error}`, allowedMentions: { repliedUser: false } });
+            console.log(err);
+            message.reply({ content: `${language.Bot.error}...`, allowedMentions: { repliedUser: false } });
             return;
         }
 
@@ -32,8 +30,8 @@ function base(messageContentExt: MessageContentExt) {
 
         guild.save((err: any) => {
             if (err) {
-                owner?.send(err);
-                message.reply({ content: `${language.Bot.error}`, allowedMentions: { repliedUser: false } });
+                console.log(err);
+                message.reply({ content: `${language.Bot.error}...`, allowedMentions: { repliedUser: false } });
                 return;
             }
 
