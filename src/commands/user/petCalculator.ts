@@ -1,6 +1,7 @@
-import { Message, MessageActionRow, MessageButton, MessageEmbed } from "discord.js";
-import MessageContentExt from "../../types/messageContentExt";
+import { Message, MessageActionRow, MessageButton, MessageEmbed, User } from "discord.js";
+import MessageContent from "../../types/messageContent";
 import Language from "../../types/language"
+import languageSet from "../../index/languageSet";
 
 var damageTalents: string, resistTalents: string, accuracyTalents: string, pierceTalents: string, critTalents: string, blockTalents: string, healthTalents: string, stunTalents: string;
 
@@ -23,14 +24,17 @@ var healthAdd: number, healthBoost: number, healthBounty: number, healthGift: nu
 var stunRecalcitrant: number, stunResistance: number;
 
 export class petCalculator {
-    public messageBotReply: any;
-    public timeToDelete = Date.now() + (1000 * 60);
+    messageBotReply: Message | undefined;
+    timeToDelete = Date.now() + (1000 * 60);
     color = Math.round(Math.random() * 0xffffff);
     isRounded = false;
+    isDefaultLang = true;
+    page = "base";
     message: Message;
-    author: string;
+    author: User;
     args: string[];
 	language: Language;
+    lang: string;
 
     embed: MessageEmbed[] = [];
     buttons: MessageActionRow[] = [];
@@ -41,11 +45,12 @@ export class petCalculator {
     will: number;
     power: number;
 
-	constructor(messageContentExt: MessageContentExt) {
-        this.message = messageContentExt.message;
-        this.author = messageContentExt.author;
-        this.args = messageContentExt.args;
-        this.language = Object.assign({}, messageContentExt.language);;
+	constructor(messageContent: MessageContent) {
+        this.message = messageContent.message;
+        this.author = messageContent.author;
+        this.args = messageContent.args;
+        this.language = Object.assign({}, messageContent.language);
+        this.lang = messageContent.lang;
 
         this.strength = +this.args[0];
         this.intellect = +this.args[1];
@@ -53,11 +58,22 @@ export class petCalculator {
         this.will = +this.args[3];
         this.power = +this.args[4];
 
-        this.embedCall(this.message);
+        this.calculateTalents();
 
-        this.message.reply({ embeds: [this.embed[1]], components: [this.buttons[1]], allowedMentions: { repliedUser: false } }).then(messageBotReply => {
-            this.messageBotReply = messageBotReply;
-        });
+        if (this.lang == "english") {
+            this.embedCallDefaultEnglish();
+            this.message.reply({ embeds: [this.embed[1]], components: [this.buttons[1]], allowedMentions: { repliedUser: false } }).then(messageBotReply => {
+                this.messageBotReply = messageBotReply;
+            });
+        }
+        else {
+            this.embedCall();
+            this.message.reply({ embeds: [this.embed[1]], components: [this.buttons[2]], allowedMentions: { repliedUser: false } }).then(messageBotReply => {
+                this.messageBotReply = messageBotReply;
+            });
+        }
+
+        
     }
 
     calculateTalents() {
@@ -150,21 +166,62 @@ export class petCalculator {
         }
     }
 
-    embedCall(message: Message) {
-        this.calculateTalents();
-        this.embed[0] = this.embedCreate(message, "base", true); // Embed with base Talents and rounding
-        this.buttons[0] = this.buttonsCreate("base", true); // Base Talents buttons with rounding
-        this.embed[1] = this.embedCreate(message, "base", false); // Embed with base Talents and no rounding
-        this.buttons[1] = this.buttonsCreate("base", false); // Base Talents buttons without rounding
-        this.embed[2] = this.embedCreate(message, "more", true); // Embed with more Talents and rounding
-        this.buttons[2] = this.buttonsCreate("more", true); // More Talents buttons with rounding
-        this.embed[3] = this.embedCreate(message, "more", false); // Embed with more Talents and rounding
-        this.buttons[3] = this.buttonsCreate("more", false); // More Talents buttons without rounding
-        this.buttons[4] = this.buttonsCreate("disabled", true); // Disabled buttons with rounding
-        this.buttons[5] = this.buttonsCreate("disabled", false); // Disabled buttons without rounding
+    embedCallDefaultEnglish() {
+        this.embed[0] = this.embedCreate("base", true); // Embed with base Talents and rounding
+        this.buttons[0] = this.buttonsCreate("base", true, ""); // Base Talents buttons with rounding
+
+        this.embed[1] = this.embedCreate("base", false); // Embed with base Talents and no rounding
+        this.buttons[1] = this.buttonsCreate("base", false, ""); // Base Talents buttons without rounding
+
+        this.embed[2] = this.embedCreate("more", true); // Embed with more Talents and rounding
+        this.buttons[2] = this.buttonsCreate("more", true, ""); // More Talents buttons with rounding
+
+        this.embed[3] = this.embedCreate("more", false); // Embed with more Talents and rounding
+        this.buttons[3] = this.buttonsCreate("more", false, ""); // More Talents buttons without rounding
+
+        this.buttons[4] = this.buttonsCreate("disabled", true, ""); // Disabled buttons with rounding
+        this.buttons[5] = this.buttonsCreate("disabled", false, ""); // Disabled buttons without rounding
+    }
+
+    embedCall() {
+        this.embed[0] = this.embedCreate("base", true); // Embed with base Talents and rounding, default language
+        this.buttons[0] = this.buttonsCreate("base", true, "toEnglish"); // Base Talents buttons with rounding and English
+        
+
+        this.embed[1] = this.embedCreate("base", false); // Embed with base Talents and no rounding, default language
+        this.buttons[2] = this.buttonsCreate("base", false, "toEnglish"); // Base Talents buttons without rounding and English
+
+
+        this.embed[2] = this.embedCreate("more", true); // Embed with more Talents and rounding, default language
+        this.buttons[4] = this.buttonsCreate("more", true, "toEnglish"); // More Talents buttons with rounding and English
+
+
+        this.embed[3] = this.embedCreate("more", false); // Embed with more Talents and rounding, default language
+        this.buttons[6] = this.buttonsCreate("more", false, "toEnglish"); // More Talents buttons without rounding and English
+
+
+        this.buttons[8] = this.buttonsCreate("disabled", true, "on"); // Disabled buttons with rounding and language, default language
+        this.buttons[9] = this.buttonsCreate("disabled", false, "on"); // Disabled buttons without rounding and language, default language
+
+        this.language = languageSet("english");
+
+        this.embed[4] = this.embedCreate("base", true); // Embed with base Talents and rounding, English
+        this.buttons[1] = this.buttonsCreate("base", true, "toDefault"); // Base Talents buttons with rounding and default
+
+        this.embed[5] = this.embedCreate("base", false); // Embed with base Talents and no rounding, English
+        this.buttons[3] = this.buttonsCreate("base", false, "toDefault"); // Base Talents buttons without rounding and default
+
+        this.embed[6] = this.embedCreate("more", true); // Embed with more Talents and rounding, English
+        this.buttons[5] = this.buttonsCreate("more", true, "toDefault"); // More Talents buttons with rounding and default
+
+        this.embed[7] = this.embedCreate("more", false); // Embed with more Talents and rounding, English
+        this.buttons[7] = this.buttonsCreate("more", false, "toDefault"); // More Talents buttons without rounding and default
+
+        this.buttons[10] = this.buttonsCreate("disabled", true, "on"); // Disabled buttons with rounding and language, English
+        this.buttons[11] = this.buttonsCreate("disabled", false, "on"); // Disabled buttons without rounding and language, English
     }
     
-    embedCreate(message: Message, talents: string, rounding: boolean): MessageEmbed {
+    embedCreate(talents: string, rounding: boolean): MessageEmbed {
         if (rounding) {
             this.printType(true);
         }
@@ -175,7 +232,7 @@ export class petCalculator {
         var embed: MessageEmbed = new MessageEmbed()
             .setColor(this.color)
             .setTitle(`:magic_wand: **${this.language.PetCalculator.embedTitle}** :magic_wand:`)
-            .setAuthor({ name: message.author.tag, iconURL: `${message.author.avatarURL()}` })
+            .setAuthor({ name: this.author.tag, iconURL: `${this.author.avatarURL()}` })
             .setImage("https://i.imgur.com/wXuMA2N.png")
             .setFooter({ text: "Wizard101 Greek Community's Staff", iconURL: "https://cdn.discordapp.com/icons/497438205340024842/a_d68d06459337bffcfccab1c063f57bda.gif?size=4096"});
 
@@ -216,7 +273,7 @@ export class petCalculator {
         return embed;
     }
     
-    buttonsCreate(talents: string, rounding: boolean): MessageActionRow {
+    buttonsCreate(talents: string, rounding: boolean, language: string): MessageActionRow {
         var buttons: MessageActionRow = new MessageActionRow();
     
         if (talents == "base") {
@@ -317,7 +374,7 @@ export class petCalculator {
                 buttons
                     .addComponents(
                         new MessageButton()
-                            .setCustomId("moreTalentsRoundingOn")
+                            .setCustomId("roundingOn")
                             .setEmoji("🔄")
                             .setLabel(`${this.language.PetCalculator.rounding}`)
                             .setStyle("SUCCESS")
@@ -328,11 +385,50 @@ export class petCalculator {
                 buttons
                     .addComponents(
                         new MessageButton()
-                            .setCustomId("moreTalentsRoundingOff")
+                            .setCustomId("roundingOff")
                             .setEmoji("🔄")
                             .setLabel(`${this.language.PetCalculator.rounding}`)
                             .setStyle("DANGER")
                             .setDisabled(true)
+                    );
+            }
+            if (language == "on") {
+                buttons
+                    .addComponents(
+                        new MessageButton()
+                            .setCustomId("lang")
+                            .setEmoji("🌐")
+                            .setStyle("SECONDARY")
+                            .setDisabled(true)
+                    );
+            }
+        }
+        if (language == "toEnglish") { 
+            buttons
+                .addComponents(
+                    new MessageButton()
+                        .setCustomId("toEnglish")
+                        .setEmoji("🇬🇧")
+                        .setStyle("SECONDARY")
+                );
+        }
+        else if (language == "toDefault") {
+            if (this.lang == "greek") {
+                buttons
+                    .addComponents(
+                        new MessageButton()
+                            .setCustomId("toDefault")
+                            .setEmoji("🇬🇷")
+                            .setStyle("SECONDARY")
+                    );
+            }
+            else if(this.lang == "spanish") {
+                buttons
+                    .addComponents(
+                        new MessageButton()
+                            .setCustomId("toDefault")
+                            .setEmoji("🇪🇸")
+                            .setStyle("SECONDARY")
                     );
             }
         }
