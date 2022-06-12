@@ -1,8 +1,6 @@
 {
-  "devDependencies": {
-    "typescript": "^4.6.3"
-  },
   "dependencies": {
+    "typescript": "*",
     "discord.js": "*",
     "mongoose": "*"
   }
