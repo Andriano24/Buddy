@@ -1,0 +1,84 @@
+{
+    "Bot": {
+        "error": "Se ha producido un error",
+        "noPermissions": "No tienes permiso para hacer eso",
+        "commandNotFound": "Comando no encontrado",
+        "commandNotAvailable": "Comando aún no disponible"
+    },
+    "PetCalculator": {
+        "wrongFormat": [
+            "¡Formato incorrecto! El formato correcto es",
+            "petstats `[Fuerza] [Intelecto] [Destreza] [Voluntad] [Potencia]`"
+        ],
+        "wrongFormatExtra": [
+            "¡Formato incorrecto! El formato correcto es",
+            "petstats `[Fuerza] [Intelecto] [Destreza] [Voluntad] [Potencia] [Cifra del Mensajero] [Cifra del Donador] [Cifra del portador]`"
+        ],
+        "wrongStats": "¡Atributos incorrectos! Ningún atributo puede ser mayor que 600 ni menor que 0",
+        "or": "o",
+        "wrongStatsExtra": "¡Atributos incorrectos! Ningún atributo puede ser mayor que 600 ni menor que 0. Ninguna cifra de mensajero/donador/portador de sufrimiento puede ser mayor que 6 ni menor que 0, y su suma no puede ser mayor que 6",
+        "strength": "Fuerza",
+        "intellect": "Intelecto",
+        "agility": "Destreza",
+        "will": "Voluntad",
+        "power": "Potencia",
+        "petStats": "Stats de Mascota",
+        "moreStats": "Más Stats",
+        "baseTalents": "Talentos Base",
+        "damageTalents": "Talentos de Daño",
+        "dealer": "Mensajero",
+        "giver": "Donador",
+        "bringer": "Portador",
+        "totalDamage": "Daño Total",
+        "resistTalents": "Talentos de Resistencia",
+        "ward": "Hechizo",
+        "proof": "Inmune",
+        "defy": "Res./Anti",
+        "accuracyTalents": "Talentos de Precisión",
+        "sniper": "Cazador",
+        "shot": "Tiro",
+        "eye": "Ojo",
+        "pierceTalents": "Talentos de Perforación",
+        "armorBreaker": "Rompearmaduras",
+        "armorPiercer": "Perforarmaduras",
+        "moreTalents": "Más Talentos",
+        "critTalents": "Talentos de Crítico",
+        "schoolAssailant": "Héroe de (Escuela)",
+        "schoolStriker": "Bate de (Escuela)",
+        "criticalHitter": "Crítico",
+        "criticalStriker": "Crítico Supremo",
+        "blockTalents": "Talentos de Bloqueo",
+        "blocker": "Bloqueador",
+        "defender": "Defensor",
+        "healthTalents": "Talentos de Salud",
+        "healer": "Sanador",
+        "healthy": "Sano",
+        "lively": "Animado",
+        "medic": "Médico",
+        "healthAdd": "Adición de Salud",
+        "healthBoost": "Aumento de Salud",
+        "healthBounty": "Ganancia de Salud",
+        "healthGift": "Regalo de Salud",
+        "stunTalents": "Talentos de Aturdir",
+        "stunRecalcitrant": "Apenas se puede aturdir",
+        "stunResistance": "Difícil de aturdir",
+        "embedTitle": "CALCULADORA DE TALENTOS DE WIZARD101",
+        "rounding": "Redondeo"
+    },
+    "LanguageChange": {
+        "wrongFormat": [
+            "¡Formato incorrecto! El formato correcto es",
+            "language `idioma a elegir`"
+        ],
+        "noAvailableLanguage": "Los argumentos introducidos no coinciden con ningún idioma disponible",
+        "languageChanged": "El idioma fue cambiado con éxito"
+    },
+    "PrefixChange": {
+        "wrongFormat": [
+            "¡Formato incorrecto! El formato correcto es",
+            "prefix `prefijo a elegir`"
+        ],
+        "samePrefix": "El bot ya tiene ese prefijo",
+        "prefixChanged": "El prefijo del bot ahora es"
+    }
+}
