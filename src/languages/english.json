@@ -1,6 +1,6 @@
 {
     "Bot": {
-        "error": "An error has been occured",
+        "error": "An error has been occurred",
         "noPermissions": "You don't have permission to do that",
         "commandNotFound": "Command not found",
         "commandNotAvailable": "Command not yet available"
