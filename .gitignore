@@ -2,3 +2,6 @@
 config.json
 package-lock.json
 *.sh
+/logs
+docker-compose.yml
+Dockerfile
