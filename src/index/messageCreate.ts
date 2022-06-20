@@ -15,7 +15,7 @@ export async function messageCreate(message: Message) {
 	var prefix: string = config.prefix;
 	var language: Language;
 
-	guildSchema.findOne({ guildId: message.guildId }, (err: any, guild: any) => {
+	guildSchema.findOne({ guildId: message.guildId as string }, (err: any, guild: any) => {
 		if (err) {
 			console.log(err);
 			message.reply({content: `${english.Bot.error}`, allowedMentions: { repliedUser: false },});

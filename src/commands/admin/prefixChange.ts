@@ -14,7 +14,7 @@ function base(messageContent: MessageContent) {
 		return;
     }
 
-    guildSchema.findOne({ guildId: message.guildId }, (err: any, guild: any) => {
+    guildSchema.findOne({ guildId: message.guildId as string }, (err: any, guild: any) => {
         if (err) {
             console.log(err);
             message.reply({ content: `${language.Bot.error}...`, allowedMentions: { repliedUser: false } });
