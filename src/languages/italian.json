@@ -1,0 +1,84 @@
+{
+    "Bot": {
+        "error": "Si è verificato un errore",
+        "noPermissions": "Non disponi dei permessi per eseguire questa azione",
+        "commandNotFound": "Comando non trovato",
+        "commandNotAvailable": "Comando non ancora disponibile"
+    },
+    "PetCalculator": {
+        "wrongFormat": [
+            "Errore nel formato! Il formato corretto è",
+            "petstats `[Forza] [Intelletto] [Agilità] [Volontà] [Energia]`"
+        ],
+        "wrongFormatExtra": [
+            "Errore nel formato! Il formato corretto è",
+            "petstats `[Forza] [Intelletto] [Agilità] [Volontà] [Energia] [Numero di Dono de (scuola)] [Numero di Porta-(scuola)] [Numero di Bonus (scuola)]`"
+        ],
+        "wrongStats": "Errore nelle statistiche! Nessuna statistica può essere superiore a 600 o inferiore a 0",
+        "or": "oppure",
+        "wrongStatsExtra": "Errore nelle statistiche! Nessuna statistica può essere superiore a 600 o inferiore a 0; il numero di talenti Dono de (scuola)/Porta-(scuola)/Bonus (scuola) non può essere superiore a 6 o inferiore a 0; e la loro somma non può essere superiore a 6",
+        "strength": "Forza",
+        "intellect": "Intelletto",
+        "agility": "Agilità",
+        "will": "Volontà",
+        "power": "Energia",
+        "petStats": "Statistiche pet",
+        "moreStats": "Più statistiche",
+        "baseTalents": "Talenti base",
+        "damageTalents": "Talenti danno",
+        "dealer": "Dono de (scuola)",
+        "giver": "Porta-(scuola)",
+        "bringer": "Bonus (scuola)",
+        "totalDamage": "Danno totale",
+        "resistTalents": "Talenti resistenza",
+        "ward": "Incantesimo de (scuola)",
+        "proof": "Anti-(scuola)",
+        "defy": "Annulla-(scuola)",
+        "accuracyTalents": "Talenti precisione",
+        "sniper": "Tiratore de (scuola)",
+        "shot": "Mira-(scuola)",
+        "eye": "Occhio-(scuola)",
+        "pierceTalents": "Talenti perforazione",
+        "armorBreaker": "Spezza-armatura",
+        "armorPiercer": "Perfora-armature",
+        "moreTalents": "Altri talenti",
+        "critTalents": "Talenti critico",
+        "schoolAssailant": "Aggressore de (scuola)",
+        "schoolStriker": "Abbatti-(scuola)",
+        "criticalHitter": "Critico",
+        "criticalStriker": "Critico supremo",
+        "blockTalents": "Talenti blocco",
+        "blocker": "Bloccatore",
+        "defender": "Difensore",
+        "healthTalents": "Talenti cura e salute",
+        "healer": "Guaritore",
+        "healthy": "Sano",
+        "lively": "Vivo",
+        "medic": "Medico",
+        "healthAdd": "Aggiungi salute",
+        "healthBoost": "Aumento di salute",
+        "healthBounty": "Pieno di salute",
+        "healthGift": "Dono di salute",
+        "stunTalents": "Talenti stordimento",
+        "stunRecalcitrant": "Difficilotto da stordire",
+        "stunResistance": "Difficile da stordire",
+        "embedTitle": "CALCOLATORE STATISTICHE PET WIZARD101",
+        "rounding": "Arrotondamento"
+    },
+    "LanguageChange": {
+        "wrongFormat": [
+            "Errore nel formato! Il formato corretto è",
+            "language `lingua scelta`"
+        ],
+        "noAvailableLanguage": "I parametri indicati non corrispondono ad alcuna lingua disponibile",
+        "languageChanged": "La lingua è stata modificata con successo"
+    },
+    "PrefixChange": {
+        "wrongFormat": [
+            "Errore nel formato! Il formato corretto è",
+            "prefix `prefisso scelto`"
+        ],
+        "samePrefix": "Il bot ha già lo stesso prefisso",
+        "prefixChanged": "Il prefisso del bot è stato cambiato in"
+    }
+}

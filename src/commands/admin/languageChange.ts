@@ -3,6 +3,7 @@ import guildSchema from "../../schemas/guild";
 import english from "../../languages/english.json";
 import greek from "../../languages/greek.json";
 import spanish from "../../languages/spanish.json";
+import italian from "../../languages/italian.json";
 
 export default { base }
 
@@ -35,6 +36,10 @@ function base(messageContent: MessageContent) {
         else if (args[0] == "spanish") {
             guild.language = "spanish";
             Object.assign(language, spanish);
+        }
+        else if (args[0] == "italian") {
+            guild.language = "italian";
+            Object.assign(language, italian);
         }
         else {
             message.reply({ content: `${language.LanguageChange.noAvailableLanguage}`, allowedMentions: { repliedUser: false } });
