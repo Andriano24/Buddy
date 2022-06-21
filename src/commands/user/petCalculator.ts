@@ -422,12 +422,21 @@ export class petCalculator {
                             .setStyle("SECONDARY")
                     );
             }
-            else if(this.lang == "spanish") {
+            else if (this.lang == "spanish") {
                 buttons
                     .addComponents(
                         new MessageButton()
                             .setCustomId("toDefault")
                             .setEmoji("🇪🇸")
+                            .setStyle("SECONDARY")
+                    );
+            }
+            else if (this.lang == "italian") {
+                buttons
+                    .addComponents(
+                        new MessageButton()
+                            .setCustomId("toDefault")
+                            .setEmoji("🇮🇹")
                             .setStyle("SECONDARY")
                     );
             }
