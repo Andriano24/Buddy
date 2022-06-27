@@ -449,6 +449,15 @@ export class petCalculator {
                             .setStyle("SECONDARY")
                     );
             }
+            else if (this.lang == "german") {
+                buttons
+                    .addComponents(
+                        new MessageButton()
+                            .setCustomId("toDefault")
+                            .setEmoji("🇩🇪")
+                            .setStyle("SECONDARY")
+                    );
+            }
         }
 
         return buttons;

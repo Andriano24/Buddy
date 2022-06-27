@@ -1,0 +1,87 @@
+{
+    "Bot": {
+        "error": "Ein Fehler ist aufgetreten",
+        "noPermissions": "Du hast keine Berechtigung sowas durchzuführen",
+        "commandNotFound": "Befehl wurde nicht gefunden",
+        "commandNotAvailable": "Befehl noch nicht verfügbar"
+    },
+    "PetCalculator": {
+        "wrongFormat": [
+            "Falsches Format! Das richtige format ist",
+            "petstats `[Stärke] [Intelligenz] [Geschick] [Wille]`"
+        ],
+        "wrongFormatExtra": [
+            "Falsches Format! Das richtige format ist",
+            "petstats `[Stärke] [Intelligenz] [Geschick] [Wille] [Power] [Anzahl von Gabe] [Anzahl von Geber] [Anzahl von Bringer/Gunst]`"
+        ],
+        "wrongStats": "Falsche Statistiken! Keine Statistik überschreitet 600 oder ist kleiner als 0",
+        "or": "oder",
+        "wrongStatsExtra": "Keine Statistik darf 600 überschreiten oder kleiner als 0 sein, keine Anzahl von Gabe/Geber/Bringer/Gunst darf 6 überschreiten oder kleiner als 0 sein und ihre Zusammenfassung darf 6 nicht überschreiten",
+        "strength": "Stärke",
+        "intellect": "Intelligenz",
+        "agility": "Geschick",
+        "will": "Wille",
+        "power": "Power",
+        "petStats": "Haustierwerte",
+        "moreStats": "Weitere Talente",
+        "baseTalents": "Base Talents",
+        "damageTalents": "Schadenstalente",
+        "dealer": "Gabe",
+        "giver": "Geber",
+        "bringer": "Bringer/Gunst",
+        "totalDamage": "Gesamtschaden",
+        "resistTalents": "Resistenztalente",
+        "ward": "(Schul)-bann",
+        "proof": "Spruchfest/(Schul)-frei",
+        "defy": "Spruchtrotz/(Schul)-fest",
+        "accuracyTalents": "Zielentalente",
+        "sniper": "Scharfer/Schuss",
+        "shot": "Schul/Schuss",
+        "eye": "Scharfes Auge",
+        "pierceTalents": "Durchschlagstalente",
+        "armorBreaker": "Rüstungsbrecher",
+        "armorPiercer": "Rüstungspikser",
+        "moreTalents": "Weitere Talente",
+        "critTalents": "Kritischtalente",
+        "schoolAssailant": "Schule/Recke",
+        "schoolStriker": "Schule/Schläger",
+        "criticalHitter": "Kritiker",
+        "criticalStriker": "Oberkritiker",
+        "blockTalents": "Blocktalente",
+        "blocker": "Blocker",
+        "defender": "Verteidiger",
+        "healthTalents": "Lebenssteigerungstalente",
+        "healer": "Verarzter",
+        "healthy": "Gesund",
+        "lively": "Lebendig",
+        "medic": "Mediziner",
+        "healthAdd": "Mehr vom Leben",
+        "healthBoost": "Lebensplus",
+        "healthBounty": "Überfluss",
+        "healthGift": "Lebensgeschenk",
+        "stunTalents": " Betäubungstalente",
+        "stunRecalcitrant": "Kaum zu betäuben",
+        "stunResistance": "Schwer zu betäuben",
+        "fishingTalents": "Angelglücktalente",
+        "fishingLuck": "Angelglück",
+        "epicFishingLuck": " Episches Angelglück ",
+        "embedTitle": "WiZARD101 HAUSTIER WERTERECHNER",
+        "rounding": "Aufrundung"
+    },
+    "LanguageChange": {
+        "wrongFormat": [
+            "Falsches Format! Das richtige Format ist",
+            "language `Sprache Wahlsprache`"
+        ],
+        "noAvailableLanguage": "Die angegebenen Argumente entsprechen keiner der verfügbaren Sprachen",
+        "languageChanged": "Die Sprache wurde erfolgreich geändert"
+    },
+    "PrefixChange": {
+        "wrongFormat": [
+            "Falsches Format! Das korrekte Format ist",
+            "prefix `prefix der Wahl`"
+        ],
+        "samePrefix": "Der Bot hat bereits das gleiche prefix",
+        "prefixChanged": "Das Präfix von bot wurde geändert in"
+    }
+}
