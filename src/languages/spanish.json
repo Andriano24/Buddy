@@ -62,6 +62,9 @@
         "stunTalents": "Talentos de Aturdir",
         "stunRecalcitrant": "Apenas se puede aturdir",
         "stunResistance": "Difícil de aturdir",
+        "fishingTalents": "Talentos de Suerte Pesquera",
+        "fishingLuck": "Suerte Pesquera",
+        "epicFishingLuck": "Suerte Pesquera Épica",
         "embedTitle": "CALCULADORA DE TALENTOS DE WIZARD101",
         "rounding": "Redondeo"
     },

@@ -3,7 +3,7 @@ import MessageContent from "../../types/messageContent";
 import Language from "../../types/language"
 import languageSet from "../../index/languageSet";
 
-var damageTalents: string, resistTalents: string, accuracyTalents: string, pierceTalents: string, critTalents: string, blockTalents: string, healthTalents: string, stunTalents: string;
+var damageTalents: string, resistTalents: string, accuracyTalents: string, pierceTalents: string, critTalents: string, blockTalents: string, healthTalents: string, stunTalents: string, fishingTalents: string;
 
 var dealer: number, giver: number, bringer: number, totalDamage: number;
 
@@ -22,6 +22,8 @@ var healer: number, healthy: number, lively: number, medic: number;
 var healthAdd: number, healthBoost: number, healthBounty: number, healthGift: number;
 
 var stunRecalcitrant: number, stunResistance: number;
+
+var fishingLuck: number, epicFishingLuck: number;
 
 export class petCalculator {
     messageBotReply: Message | undefined;
@@ -62,13 +64,13 @@ export class petCalculator {
 
         if (this.lang == "english") {
             this.embedCallDefaultEnglish();
-            this.message.reply({ embeds: [this.embed[1]], components: [this.buttons[1]], allowedMentions: { repliedUser: false } }).then(messageBotReply => {
+            this.message.reply({ embeds: [this.embed[1]], components: [this.buttons[1]], allowedMentions: { repliedUser: false } }).then((messageBotReply: any) => {
                 this.messageBotReply = messageBotReply;
             });
         }
         else {
             this.embedCall();
-            this.message.reply({ embeds: [this.embed[1]], components: [this.buttons[2]], allowedMentions: { repliedUser: false } }).then(messageBotReply => {
+            this.message.reply({ embeds: [this.embed[1]], components: [this.buttons[2]], allowedMentions: { repliedUser: false } }).then((messageBotReply: any) => {
                 this.messageBotReply = messageBotReply;
             });
         }
@@ -113,6 +115,9 @@ export class petCalculator {
     
         stunRecalcitrant = (((2 * this.strength) + (2 * this.intellect) + (this.power)) / 125);
         stunResistance = (((2 * this.strength) + (2 * this.intellect) + (this.power)) / 250);
+
+        fishingLuck = ((2 * this.intellect) + (2 * this.will) + this.power) / 400;
+        epicFishingLuck = ((2 * this.intellect) + (2 * this.will) + this.power) / 400;
     }
 
     printType(rounding: boolean) {
@@ -132,6 +137,7 @@ export class petCalculator {
             blockTalents = `${this.language.PetCalculator.blocker}: ` + Math.floor(blocker + wizardFloor) + "\n" + `${this.language.PetCalculator.defender}: ` + Math.floor(defender + wizardFloor) + "\n";
             healthTalents = `${this.language.PetCalculator.healer}: ` + Math.floor(healer + wizardFloor) + "%\n" + `${this.language.PetCalculator.healthy}: ` + Math.floor(healthy + wizardFloor) + "%\n" + `${this.language.PetCalculator.lively}: ` + Math.floor(lively + wizardFloor) + "%\n" + `${this.language.PetCalculator.medic}: ` + Math.floor(medic + wizardFloor) + "%\n" + `${this.language.PetCalculator.healthAdd}: ` + Math.floor(healthAdd + wizardFloor) + "\n" + `${this.language.PetCalculator.healthBoost}: ` + Math.floor(healthBoost + wizardFloor) + "\n" + `${this.language.PetCalculator.healthBounty}: ` + Math.floor(healthBounty + wizardFloor) + "\n" + `${this.language.PetCalculator.healthGift}: ` + Math.floor(healthGift + wizardFloor) + "\n";
             stunTalents = `${this.language.PetCalculator.stunRecalcitrant}: ` + Math.floor(stunRecalcitrant + wizardFloor) + "%\n" + `${this.language.PetCalculator.stunResistance}: ` + Math.floor(stunResistance + wizardFloor) + "%\n";
+            fishingTalents = `${this.language.PetCalculator.fishingLuck}: ` + Math.floor(fishingLuck + wizardFloor) + "%\n" + `${this.language.PetCalculator.epicFishingLuck}: ` + Math.floor(epicFishingLuck + wizardFloor) + "%\n"
         }
         else {
             damageTalents = `${this.language.PetCalculator.dealer}: ` + this.decimalPlacesFixer(dealer) + "%\n" + `${this.language.PetCalculator.giver}: ` + this.decimalPlacesFixer(giver) + "%\n" + `${this.language.PetCalculator.bringer}: ` + this.decimalPlacesFixer(bringer) + "%\n";
@@ -147,6 +153,7 @@ export class petCalculator {
             blockTalents = `${this.language.PetCalculator.blocker}: ` + this.decimalPlacesFixer(blocker) + "\n" + `${this.language.PetCalculator.defender}: ` + this.decimalPlacesFixer(defender) + "\n";
             healthTalents = `${this.language.PetCalculator.healer}: ` + this.decimalPlacesFixer(healer) + "%\n" + `${this.language.PetCalculator.healthy}: ` + this.decimalPlacesFixer(healthy) + "%\n" + `${this.language.PetCalculator.lively}: ` + this.decimalPlacesFixer(lively) + "%\n" + `${this.language.PetCalculator.medic}: ` + this.decimalPlacesFixer(medic) + "%\n" + `${this.language.PetCalculator.healthAdd}: ` + this.decimalPlacesFixer(healthAdd) + "\n" + `${this.language.PetCalculator.healthBoost}: ` + this.decimalPlacesFixer(healthBoost) + "\n" + `${this.language.PetCalculator.healthBounty}: ` + this.decimalPlacesFixer(healthBounty) + "\n" + `${this.language.PetCalculator.healthGift}: ` + this.decimalPlacesFixer(healthGift) + "\n";
             stunTalents = `${this.language.PetCalculator.stunRecalcitrant}: ` + this.decimalPlacesFixer(stunRecalcitrant) + "%\n" + `${this.language.PetCalculator.stunResistance}: ` + this.decimalPlacesFixer(stunResistance) + "%\n";
+            fishingTalents = `${this.language.PetCalculator.fishingLuck}: ` + this.decimalPlacesFixer(fishingLuck) + "%\n" + `${this.language.PetCalculator.epicFishingLuck}: ` + this.decimalPlacesFixer(epicFishingLuck) + "%\n"
         }
     }
 
@@ -231,42 +238,44 @@ export class petCalculator {
         
         var embed: MessageEmbed = new MessageEmbed()
             .setColor(this.color)
-            .setTitle(`:magic_wand: **${this.language.PetCalculator.embedTitle}** :magic_wand:`)
+            .setTitle(`<:pig_pet:989164327867129908> **${this.language.PetCalculator.embedTitle}** <:pig_pet:989164327867129908>`)
             .setAuthor({ name: this.author.tag, iconURL: `${this.author.avatarURL()}` })
             .setImage("https://i.imgur.com/wXuMA2N.png")
             .setFooter({ text: "Wizard101 Greek Community's Staff", iconURL: "https://cdn.discordapp.com/icons/497438205340024842/a_d68d06459337bffcfccab1c063f57bda.gif?size=4096"});
 
+        var description = `**${this.language.PetCalculator.petStats}**: <:strength:988444646441091073> ${this.strength}, <:intellect:988444648282406942> ${this.intellect}, <:agility:988444649905586226> ${this.agility}, <:will:988444651272949843> ${this.will}, <:power:988444653084889179> ${this.power}\n`;
+        
         if (this.args.length == 5) {
             embed
-                .setDescription(`**${this.language.PetCalculator.petStats}**: :muscle: ${this.strength}, :brain: ${this.intellect}, :athletic_shoe: ${this.agility}, :handshake: ${this.will}, :zap: ${this.power}\n\u200B`)
+                .setDescription(`${description}\u200B`)
         }
         else {
             embed
-                .setDescription(`**${this.language.PetCalculator.petStats}**: :muscle: ${this.strength}, :brain: ${this.intellect}, :athletic_shoe: ${this.agility}, :handshake: ${this.will}, :zap: ${this.power}\n**${this.language.PetCalculator.moreStats}**: :anatomical_heart: [${this.args[5]}, ${this.args[6]}, ${this.args[7]}]\n\u200B`)
+                .setDescription(`${description}**${this.language.PetCalculator.moreStats}**: :anatomical_heart: [${this.args[5]}, ${this.args[6]}, ${this.args[7]}]\u200B`)
         }
         
         if (talents == "base") {
             embed
                 .addFields(
-                    { name: `${this.language.PetCalculator.damageTalents}`, value: `${damageTalents}`, inline: true },
-                    { name: `${this.language.PetCalculator.resistTalents}`, value: `${resistTalents}`, inline: true },
+                    { name: `<:damage:989161409055162379> ${this.language.PetCalculator.damageTalents} <:damage:989161409055162379>`, value: `${damageTalents}`, inline: true },
+                    { name: `<:resist:989161410535776277> ${this.language.PetCalculator.resistTalents} <:resist:989161410535776277>`, value: `${resistTalents}`, inline: true },
                 )
                 .addField("\u200B", "\u200B")
                 .addFields(
-                    { name: `${this.language.PetCalculator.accuracyTalents}`, value: `${accuracyTalents}`, inline: true },
-                    { name: `${this.language.PetCalculator.pierceTalents}`, value: `${pierceTalents}`, inline: true },
+                    { name: `<:accuracy:989161626051682385> ${this.language.PetCalculator.accuracyTalents} <:accuracy:989161626051682385>`, value: `${accuracyTalents}`, inline: true },
+                    { name: `<:pierce:989161873322688513> ${this.language.PetCalculator.pierceTalents} <:pierce:989161873322688513>`, value: `${pierceTalents}`, inline: true },
                 );
         }
         else {
             embed
                 .addFields(
-                    { name: `${this.language.PetCalculator.critTalents}`, value: `${critTalents}`, inline: true },
-                    { name: `${this.language.PetCalculator.blockTalents}`, value: `${blockTalents}`, inline: true },
+                    { name: `<:crit:989162463566135366> ${this.language.PetCalculator.critTalents} <:crit:989162463566135366>`, value: `${critTalents}`, inline: true },
+                    { name: `<:block:989162489977643038> ${this.language.PetCalculator.blockTalents} <:block:989162489977643038>`, value: `${blockTalents}`, inline: true },
                 )
                 .addField("\u200B", "\u200B")
                 .addFields(
-                    { name: `${this.language.PetCalculator.healthTalents}`, value: `${healthTalents}`, inline: true },
-                    { name: `${this.language.PetCalculator.stunTalents}`, value: `${stunTalents}`, inline: true },
+                    { name: `<:health:989162519027392522> ${this.language.PetCalculator.healthTalents} <:health:989162519027392522>`, value: `${healthTalents}`, inline: true },
+                    { name: `<:stun:989162805401882685> ${this.language.PetCalculator.stunTalents} <:stun:989162805401882685>`, value: `${stunTalents}\n <:fishing_luck:990988916037402674> **${this.language.PetCalculator.fishingTalents}** <:fishing_luck:990988916037402674>\n ${fishingTalents}`, inline: true },
                 );
         }
         
