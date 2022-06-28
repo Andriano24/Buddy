@@ -62,6 +62,9 @@
         "stunTalents": "Ταλέντα Αντίστασης Ζαλάδας",
         "stunRecalcitrant": "Δεν Mπορεί να Nαρκωθεί",
         "stunResistance": "Ναρκώνεται Δύσκολα",
+        "fishingLuckTalents": "Ταλέντα Τύχης Ψαρέματος",
+        "fishingLuck": "Τύχη Ψαρέματος",
+        "epicFishingLuck": "Επική Τύχη Ψαρέματος",
         "embedTitle": "WIZARD101 PET STATS CALCULATOR",
         "rounding": "Στρογγυλοποίηση"
     },
