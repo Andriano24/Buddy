@@ -3,7 +3,7 @@ import MessageContent from "../../types/messageContent";
 import Language from "../../types/language"
 import languageSet from "../../index/languageSet";
 
-var damageTalents: string, resistTalents: string, accuracyTalents: string, pierceTalents: string, critTalents: string, blockTalents: string, healthTalents: string, stunTalents: string, fishingTalents: string;
+var damageTalents: string, resistTalents: string, accuracyTalents: string, pierceTalents: string, critTalents: string, blockTalents: string, healthTalents: string, stunTalents: string, fishingLuckTalents: string;
 
 var dealer: number, giver: number, bringer: number, totalDamage: number;
 
@@ -137,7 +137,7 @@ export class petCalculator {
             blockTalents = `${this.language.PetCalculator.blocker}: ` + Math.floor(blocker + wizardFloor) + "\n" + `${this.language.PetCalculator.defender}: ` + Math.floor(defender + wizardFloor) + "\n";
             healthTalents = `${this.language.PetCalculator.healer}: ` + Math.floor(healer + wizardFloor) + "%\n" + `${this.language.PetCalculator.healthy}: ` + Math.floor(healthy + wizardFloor) + "%\n" + `${this.language.PetCalculator.lively}: ` + Math.floor(lively + wizardFloor) + "%\n" + `${this.language.PetCalculator.medic}: ` + Math.floor(medic + wizardFloor) + "%\n" + `${this.language.PetCalculator.healthAdd}: ` + Math.floor(healthAdd + wizardFloor) + "\n" + `${this.language.PetCalculator.healthBoost}: ` + Math.floor(healthBoost + wizardFloor) + "\n" + `${this.language.PetCalculator.healthBounty}: ` + Math.floor(healthBounty + wizardFloor) + "\n" + `${this.language.PetCalculator.healthGift}: ` + Math.floor(healthGift + wizardFloor) + "\n";
             stunTalents = `${this.language.PetCalculator.stunRecalcitrant}: ` + Math.floor(stunRecalcitrant + wizardFloor) + "%\n" + `${this.language.PetCalculator.stunResistance}: ` + Math.floor(stunResistance + wizardFloor) + "%\n";
-            fishingTalents = `${this.language.PetCalculator.fishingLuck}: ` + Math.floor(fishingLuck + wizardFloor) + "%\n" + `${this.language.PetCalculator.epicFishingLuck}: ` + Math.floor(epicFishingLuck + wizardFloor) + "%\n"
+            fishingLuckTalents = `${this.language.PetCalculator.fishingLuck}: ` + Math.floor(fishingLuck + wizardFloor) + "%\n" + `${this.language.PetCalculator.epicFishingLuck}: ` + Math.floor(epicFishingLuck + wizardFloor) + "%\n"
         }
         else {
             damageTalents = `${this.language.PetCalculator.dealer}: ` + this.decimalPlacesFixer(dealer) + "%\n" + `${this.language.PetCalculator.giver}: ` + this.decimalPlacesFixer(giver) + "%\n" + `${this.language.PetCalculator.bringer}: ` + this.decimalPlacesFixer(bringer) + "%\n";
@@ -153,7 +153,7 @@ export class petCalculator {
             blockTalents = `${this.language.PetCalculator.blocker}: ` + this.decimalPlacesFixer(blocker) + "\n" + `${this.language.PetCalculator.defender}: ` + this.decimalPlacesFixer(defender) + "\n";
             healthTalents = `${this.language.PetCalculator.healer}: ` + this.decimalPlacesFixer(healer) + "%\n" + `${this.language.PetCalculator.healthy}: ` + this.decimalPlacesFixer(healthy) + "%\n" + `${this.language.PetCalculator.lively}: ` + this.decimalPlacesFixer(lively) + "%\n" + `${this.language.PetCalculator.medic}: ` + this.decimalPlacesFixer(medic) + "%\n" + `${this.language.PetCalculator.healthAdd}: ` + this.decimalPlacesFixer(healthAdd) + "\n" + `${this.language.PetCalculator.healthBoost}: ` + this.decimalPlacesFixer(healthBoost) + "\n" + `${this.language.PetCalculator.healthBounty}: ` + this.decimalPlacesFixer(healthBounty) + "\n" + `${this.language.PetCalculator.healthGift}: ` + this.decimalPlacesFixer(healthGift) + "\n";
             stunTalents = `${this.language.PetCalculator.stunRecalcitrant}: ` + this.decimalPlacesFixer(stunRecalcitrant) + "%\n" + `${this.language.PetCalculator.stunResistance}: ` + this.decimalPlacesFixer(stunResistance) + "%\n";
-            fishingTalents = `${this.language.PetCalculator.fishingLuck}: ` + this.decimalPlacesFixer(fishingLuck) + "%\n" + `${this.language.PetCalculator.epicFishingLuck}: ` + this.decimalPlacesFixer(epicFishingLuck) + "%\n"
+            fishingLuckTalents = `${this.language.PetCalculator.fishingLuck}: ` + this.decimalPlacesFixer(fishingLuck) + "%\n" + `${this.language.PetCalculator.epicFishingLuck}: ` + this.decimalPlacesFixer(epicFishingLuck) + "%\n"
         }
     }
 
@@ -267,6 +267,7 @@ export class petCalculator {
                 );
         }
         else {
+            var embedFishingLuckTalents = `\n<:fishing_luck:990988916037402674> **${this.language.PetCalculator.fishingLuckTalents}** <:fishing_luck:990988916037402674>\n ${fishingLuckTalents}`;
             embed
                 .addFields(
                     { name: `<:crit:989162463566135366> ${this.language.PetCalculator.critTalents} <:crit:989162463566135366>`, value: `${critTalents}`, inline: true },
@@ -275,7 +276,7 @@ export class petCalculator {
                 .addField("\u200B", "\u200B")
                 .addFields(
                     { name: `<:health:989162519027392522> ${this.language.PetCalculator.healthTalents} <:health:989162519027392522>`, value: `${healthTalents}`, inline: true },
-                    { name: `<:stun:989162805401882685> ${this.language.PetCalculator.stunTalents} <:stun:989162805401882685>`, value: `${stunTalents}\n <:fishing_luck:990988916037402674> **${this.language.PetCalculator.fishingTalents}** <:fishing_luck:990988916037402674>\n ${fishingTalents}`, inline: true },
+                    { name: `<:stun:989162805401882685> ${this.language.PetCalculator.stunTalents} <:stun:989162805401882685>`, value: `${stunTalents}${embedFishingLuckTalents}`, inline: true },
                 );
         }
         

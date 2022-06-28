@@ -58,7 +58,7 @@ type Language = {
         stunTalents: string;
         stunRecalcitrant: string;
         stunResistance: string;
-        fishingTalents: string,
+        fishingLuckTalents: string,
         fishingLuck: string,
         epicFishingLuck: string,
         embedTitle: string;
