@@ -247,11 +247,11 @@ export class petCalculator {
         
         if (this.args.length == 5) {
             embed
-                .setDescription(`${description}\u200B`)
+                .setDescription(`${description}\n`)
         }
         else {
             embed
-                .setDescription(`${description}**${this.language.PetCalculator.moreStats}**: :anatomical_heart: [${this.args[5]}, ${this.args[6]}, ${this.args[7]}]\u200B`)
+                .setDescription(`${description}**${this.language.PetCalculator.moreStats}**: <:plus:991275688747339786> [${this.args[5]}, ${this.args[6]}, ${this.args[7]}]\n`)
         }
         
         if (talents == "base") {
@@ -291,7 +291,7 @@ export class petCalculator {
                 .addComponents(
                     new MessageButton()
                         .setCustomId("baseTalents")
-                        .setEmoji("👊")
+                        .setEmoji("<:all:991275396098162749>")
                         .setLabel(`${this.language.PetCalculator.baseTalents}`)
                         .setStyle("SECONDARY")
                         .setDisabled(true)
@@ -299,7 +299,7 @@ export class petCalculator {
                 .addComponents(
                     new MessageButton()
                         .setCustomId("moreTalents")
-                        .setEmoji("🤲")
+                        .setEmoji("<:all_wide:991275428507562014>")
                         .setLabel(`${this.language.PetCalculator.moreTalents}`)
                         .setStyle("SECONDARY")
                 );
@@ -308,7 +308,7 @@ export class petCalculator {
                     .addComponents(
                         new MessageButton()
                             .setCustomId("baseTalentsRoundingOn")
-                            .setEmoji("🔄")
+                            .setEmoji("<:spiral:991275838404304976>")
                             .setLabel(`${this.language.PetCalculator.rounding}`)
                             .setStyle("SUCCESS")
                     );
@@ -318,7 +318,7 @@ export class petCalculator {
                     .addComponents(
                         new MessageButton()
                             .setCustomId("baseTalentsRoundingOff")
-                            .setEmoji("🔄")
+                            .setEmoji("<:spiral:991275838404304976>")
                             .setLabel(`${this.language.PetCalculator.rounding}`)
                             .setStyle("DANGER")
                     );
@@ -329,14 +329,14 @@ export class petCalculator {
                 .addComponents(
                     new MessageButton()
                         .setCustomId("baseTalents")
-                        .setEmoji("👊")
+                        .setEmoji("<:all:991275396098162749>")
                         .setLabel(`${this.language.PetCalculator.baseTalents}`)
                         .setStyle("SECONDARY")
                 )
                 .addComponents(
                     new MessageButton()
                         .setCustomId("moreTalents")
-                        .setEmoji("🤲")
+                        .setEmoji("<:all_wide:991275428507562014>")
                         .setLabel(`${this.language.PetCalculator.moreTalents}`)
                         .setStyle("SECONDARY")
                         .setDisabled(true)
@@ -346,7 +346,7 @@ export class petCalculator {
                     .addComponents(
                         new MessageButton()
                             .setCustomId("moreTalentsRoundingOn")
-                            .setEmoji("🔄")
+                            .setEmoji("<:spiral:991275838404304976>")
                             .setLabel(`${this.language.PetCalculator.rounding}`)
                             .setStyle("SUCCESS")
                     );
@@ -356,7 +356,7 @@ export class petCalculator {
                     .addComponents(
                         new MessageButton()
                             .setCustomId("moreTalentsRoundingOff")
-                            .setEmoji("🔄")
+                            .setEmoji("<:spiral:991275838404304976>")
                             .setLabel(`${this.language.PetCalculator.rounding}`)
                             .setStyle("DANGER")
                     );
@@ -367,7 +367,7 @@ export class petCalculator {
                 .addComponents(
                     new MessageButton()
                         .setCustomId("baseTalents")
-                        .setEmoji("👊")
+                        .setEmoji("<:all:991275396098162749>")
                         .setLabel(`${this.language.PetCalculator.baseTalents}`)
                         .setStyle("SECONDARY")
                         .setDisabled(true)
@@ -375,7 +375,7 @@ export class petCalculator {
                 .addComponents(
                     new MessageButton()
                         .setCustomId("moreTalents")
-                        .setEmoji("🤲")
+                        .setEmoji("<:all_wide:991275428507562014>")
                         .setLabel(`${this.language.PetCalculator.moreTalents}`)
                         .setStyle("SECONDARY")
                         .setDisabled(true)
@@ -385,7 +385,7 @@ export class petCalculator {
                     .addComponents(
                         new MessageButton()
                             .setCustomId("roundingOn")
-                            .setEmoji("🔄")
+                            .setEmoji("<:spiral:991275838404304976>")
                             .setLabel(`${this.language.PetCalculator.rounding}`)
                             .setStyle("SUCCESS")
                             .setDisabled(true)
@@ -396,7 +396,7 @@ export class petCalculator {
                     .addComponents(
                         new MessageButton()
                             .setCustomId("roundingOff")
-                            .setEmoji("🔄")
+                            .setEmoji("<:spiral:991275838404304976>")
                             .setLabel(`${this.language.PetCalculator.rounding}`)
                             .setStyle("DANGER")
                             .setDisabled(true)
@@ -407,7 +407,7 @@ export class petCalculator {
                     .addComponents(
                         new MessageButton()
                             .setCustomId("lang")
-                            .setEmoji("🌐")
+                            .setEmoji("<:school_star:991276866843463691>")
                             .setStyle("SECONDARY")
                             .setDisabled(true)
                     );
