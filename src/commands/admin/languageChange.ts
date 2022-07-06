@@ -40,6 +40,9 @@ function base(messageContent: MessageContent) {
         else if (args[0] == "polish") {
             guild.language = "polish"
         }
+        else if (args[0] == "slovak") {
+            guild.language = "slovak"
+        }
         else {
             message.reply({ content: `${language.LanguageChange.noAvailableLanguage}`, allowedMentions: { repliedUser: false } });
             return;

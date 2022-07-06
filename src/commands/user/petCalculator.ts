@@ -468,6 +468,15 @@ export class petCalculator {
                             .setStyle("SECONDARY")
                     );
             }
+            else if (this.lang == "slovak") {
+                buttons
+                    .addComponents(
+                        new MessageButton()
+                            .setCustomId("toDefault")
+                            .setEmoji("🇸🇰")
+                            .setStyle("SECONDARY")
+                    );
+            }
         }
 
         return buttons;
