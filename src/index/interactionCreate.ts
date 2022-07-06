@@ -8,7 +8,7 @@ export async function interactionCreate(interaction: Interaction) {
             if (interaction.user.id !== petCalculator.author.id) return;
             if (interaction.message.id !== (petCalculator.messageBotReply as Message).id) return;
 
-            if(petCalculator.lang == "english") {
+            if(petCalculator.lang == "english" || petCalculator.lang == "slovak" || petCalculator.lang == "czech") {
                 if (interaction.customId == "baseTalents") {
                     if(petCalculator.isRounded) {
                         await (interaction.message as Message).edit({embeds: [petCalculator.embed[0]], components: [petCalculator.buttons[0]], allowedMentions: { repliedUser: false }});

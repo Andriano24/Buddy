@@ -62,8 +62,8 @@ export class petCalculator {
 
         this.calculateTalents();
 
-        if (this.lang == "english") {
-            this.embedCallDefaultEnglish();
+        if (this.lang == "english" || this.lang == "slovak" || this.lang == "czech") {
+            this.embedCallNoTranslation();
             this.message.reply({ embeds: [this.embed[1]], components: [this.buttons[1]], allowedMentions: { repliedUser: false } }).then((messageBotReply: any) => {
                 this.messageBotReply = messageBotReply;
             });
@@ -173,7 +173,7 @@ export class petCalculator {
         }
     }
 
-    embedCallDefaultEnglish() {
+    embedCallNoTranslation() {
         this.embed[0] = this.embedCreate("base", true); // Embed with base Talents and rounding
         this.buttons[0] = this.buttonsCreate("base", true, ""); // Base Talents buttons with rounding
 
@@ -465,15 +465,6 @@ export class petCalculator {
                         new MessageButton()
                             .setCustomId("toDefault")
                             .setEmoji("🇵🇱")
-                            .setStyle("SECONDARY")
-                    );
-            }
-            else if (this.lang == "slovak") {
-                buttons
-                    .addComponents(
-                        new MessageButton()
-                            .setCustomId("toDefault")
-                            .setEmoji("🇸🇰")
                             .setStyle("SECONDARY")
                     );
             }

@@ -7,7 +7,7 @@ export function checkPetCalculatorCalled() {
 
     petCalculatorCalled.forEach(async (petCalculator: PetCalculator) => {
         if (time >= petCalculator.timeToDelete) {
-            if (petCalculator.lang == "english") {
+            if (petCalculator.lang == "english" || petCalculator.lang == "slovak" || petCalculator.lang == "czech") {
                 if (petCalculator.isRounded) {
                 await (petCalculator.messageBotReply as Message).edit({embeds: [(petCalculator.messageBotReply as Message).embeds[0]], components: [petCalculator.buttons[4]], allowedMentions: { repliedUser: false }});
                 }

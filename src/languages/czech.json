@@ -1,0 +1,87 @@
+{
+    "Bot": {
+        "error": "Nìkde nastala chyba",
+        "noPermissions": "Nemáš dostateèná oprávnìní",
+        "commandNotFound": "Pøíkaz nebyl nalezen",
+        "commandNotAvailable": "Pøíkaz ještì není dostupný"
+    },
+    "PetCalculator": {
+        "wrongFormat": [
+            "Nesprávný formát. Správný formát je",
+            "petstats `[Strength] [Intellect] [Agility] [Will] [Power]`"
+        ],
+        "wrongFormatExtra": [
+            "Nesprávný formát. Správný formát je",
+            "petstats `[Strength] [Intellect] [Agility] [Will] [Power] [Number of Dealer] [Number of Giver] [Number of Pain Bringer]`"
+        ],
+        "wrongStats": "Nesprávná statistika. Statistika nesmí pøesáhnout 600 nebo být menší než 0",
+        "or": "nebo",
+        "wrongStatsExtra": "Nesprávná statistika. Statistika nesmí pøesáhnout 600 nebo být menší než 0, žádný poèet dealer/giver/painbringer nesmí pøesáhnout 6 nebo být ménì než 0 a jejich souhrn nesmí pøekroèit 6",
+        "strength": "Strength",
+        "intellect": "Intellect",
+        "agility": "Agility",
+        "will": "Will",
+        "power": "Power",
+        "petStats": "Pet Stats",
+        "moreStats": "More Stats",
+        "baseTalents": "Base Talents",
+        "damageTalents": "Damage Talents",
+        "dealer": "Dealer",
+        "giver": "Giver",
+        "bringer": "Bringer",
+        "totalDamage": "Total Damage",
+        "resistTalents": "Resist Talents",
+        "ward": "Ward",
+        "proof": "Proof",
+        "defy": "Defy",
+        "accuracyTalents": "Accuracy Talents",
+        "sniper": "Sniper",
+        "shot": "Shot",
+        "eye": "Eye",
+        "pierceTalents": "Pierce Talents",
+        "armorBreaker": "Armor Breaker",
+        "armorPiercer": "Armor Piercer",
+        "moreTalents": "More Talents",
+        "critTalents": "Critical Talents",
+        "schoolAssailant": "School Assailant",
+        "schoolStriker": "School Striker",
+        "criticalHitter": "Critical Hitter",
+        "criticalStriker": "Critical Striker",
+        "blockTalents": "Block Talents",
+        "blocker": "Blocker",
+        "defender": "Defender",
+        "healthTalents": "Health Talents",
+        "healer": "Healer",
+        "healthy": "Healthy",
+        "lively": "Lively",
+        "medic": "Medic",
+        "healthAdd": "Add Health",
+        "healthBoost": "Health Boost",
+        "healthBounty": "Health Bounty",
+        "healthGift": "Health Gift",
+        "stunTalents": "Stun Talents",
+        "stunRecalcitrant": "Stun Recalcitrant",
+        "stunResistance": "Stun Resist",
+        "fishingLuckTalents": "Fishing Luck Talents",
+        "fishingLuck": "Fishing Luck",
+        "epicFishingLuck": "Epic Fishing Luck",
+        "embedTitle": "WIZARD101 PET STATS CALCULATOR",
+        "rounding": "Rounding"
+    },
+    "LanguageChange": {
+        "wrongFormat": [
+            "Nesprávný formát. Správný formát je",
+            "language `jazyk dle výbìru`"
+        ],
+        "noAvailableLanguage": "Uvedené argumenty neodpovídají žádnému dostupnému jazyku",
+        "languageChanged": "Jazyk byl úspìšnì zmìnìn"
+    },
+    "PrefixChange": {
+        "wrongFormat": [
+            "Nesprávný formát. Správný formát je",
+            "prefix `prefix dle výbìru`"
+        ],
+        "samePrefix": "Bot už má stejný prefix",
+        "prefixChanged": "Prefix bota se zmìnil na"
+    }
+}
