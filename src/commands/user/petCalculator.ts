@@ -243,7 +243,7 @@ export class petCalculator {
             .setImage("https://i.imgur.com/wXuMA2N.png")
             .setFooter({ text: "Wizard101 Greek Community's Staff", iconURL: "https://cdn.discordapp.com/icons/497438205340024842/a_d68d06459337bffcfccab1c063f57bda.gif?size=4096"});
 
-        var description = `**${this.language.PetCalculator.petStats}**: <:strength:988444646441091073> ${this.strength}, <:intellect:988444648282406942> ${this.intellect}, <:agility:988444649905586226> ${this.agility}, <:will:988444651272949843> ${this.will}, <:power:988444653084889179> ${this.power}\n`;
+        var description = `**${this.language.PetCalculator.petStats}**: <:strength:988444646441091073> ${this.strength} <:intellect:988444648282406942> ${this.intellect} <:agility:988444649905586226> ${this.agility} <:will:988444651272949843> ${this.will} <:power:988444653084889179> ${this.power}\n`;
         
         if (this.args.length == 5) {
             embed
