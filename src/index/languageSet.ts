@@ -26,7 +26,7 @@ function languageSet(lang: string): Language {
     else if (lang == "polish" || lang == "pl") {
         return Object.assign({}, polish);
     }
-    else if (lang == "slovak" || lang == "sl") {
+    else if (lang == "slovak" || lang == "sk") {
         return Object.assign({}, slovak);
     }
     else if (lang == "czech" || lang == "cz") {

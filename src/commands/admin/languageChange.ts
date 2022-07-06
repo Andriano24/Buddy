@@ -40,7 +40,7 @@ function base(messageContent: MessageContent) {
         else if (args[0] == "polish" || args[0] == "pl") {
             guild.language = "polish";
         }
-        else if (args[0] == "slovak" || args[0] == "sl") {
+        else if (args[0] == "slovak" || args[0] == "sk") {
             guild.language = "slovak";
         }
         else if (args[0] == "czech" || args[0] == "cz") {
