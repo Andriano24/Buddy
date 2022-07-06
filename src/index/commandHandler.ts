@@ -41,7 +41,7 @@ async function commandHandler(messageContent: MessageContent) {
                 return;
             }
 
-            if ((+args[0] < 0 || +args[0] > 600) || (+args[1] < 0 || +args[1] > 600) || (+args[2] < 0 || +args[2] > 600) || (+args[3] < 0 || +args[3] > 600) || (+args[4] < 0 || +args[4] > 600)) {
+            if ((+args[0] < 0 || +args[0] > 600 || args[0].includes(".")) || (+args[1] < 0 || +args[1] > 600 || args[1].includes(".")) || (+args[2] < 0 || +args[2] > 600 || args[2].includes(".")) || (+args[3] < 0 || +args[3] > 600 || args[3].includes(".")) || (+args[4] < 0 || +args[4] > 600 || args[4].includes("."))) {
                 message.reply({ content: `${language.PetCalculator.wrongStats}.`, allowedMentions: { repliedUser: false } });
                 return;
             }
@@ -52,8 +52,8 @@ async function commandHandler(messageContent: MessageContent) {
                 return;
             }
 
-            if ((+args[0] < 0 || +args[0] > 600) || (+args[1] < 0 || +args[1] > 600) || (+args[2] < 0 || +args[2] > 600) || (+args[3] < 0 || +args[3] > 600) || (+args[4] < 0 || +args[4] > 600) || 
-                (+args[5] < 0 || +args[5] > 6) || (+args[6] < 0 || +args[6] > 6) || (+args[7] < 0 || +args[7] > 6) || (+args[5] + +args[6] + +args[7] > 6)) {
+            if ((+args[0] < 0 || +args[0] > 600 || args[0].includes(".")) || (+args[1] < 0 || +args[1] > 600 || args[1].includes(".")) || (+args[2] < 0 || +args[2] > 600 || args[2].includes(".")) || (+args[3] < 0 || +args[3] > 600 || args[3].includes(".")) || (+args[4] < 0 || +args[4] > 600 || args[4].includes(".")) || 
+                (+args[5] < 0 || +args[5] > 6 || args[5].includes(".")) || (+args[6] < 0 || +args[6] > 6 || args[6].includes(".")) || (+args[7] < 0 || +args[7] > 6 || args[7].includes(".")) || (+args[5] + +args[6] + +args[7] > 6)) {
                 message.reply({ content: `${language.PetCalculator.wrongStatsExtra}.`, allowedMentions: { repliedUser: false } });
                 return;
             }
