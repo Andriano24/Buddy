@@ -12,7 +12,7 @@
         ],
         "wrongFormatExtra": [
             "Nesprávny formát. Správny formát je",
-            "petstats `[Strength] [Intellect] [Agility] [Will] [Power] [Number of Dealer] [Number of Giver] [Number of Pain Bringer]`"
+            "petstats `[Strength] [Intellect] [Agility] [Will] [Power] [Počet Dealerov] [Počet Giverov] [Počet Bringerov]`"
         ],
         "wrongStats": "Nesprávna štatistika. Štatistika nesmie presiahnú 600 alebo by menšia ako 0",
         "or": "alebo",

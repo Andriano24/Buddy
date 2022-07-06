@@ -12,7 +12,7 @@
         ],
         "wrongFormatExtra": [
             "Nesprávný formát. Správný formát je",
-            "petstats `[Strength] [Intellect] [Agility] [Will] [Power] [Number of Dealer] [Number of Giver] [Number of Pain Bringer]`"
+            "petstats `[Strength] [Intellect] [Agility] [Will] [Power] [Počet Dealerů] [Počet Giverů] [Počet Pain Bringerů]`"
         ],
         "wrongStats": "Nesprávná statistika. Statistika nesmí pøesáhnout 600 nebo být menší než 0",
         "or": "nebo",
