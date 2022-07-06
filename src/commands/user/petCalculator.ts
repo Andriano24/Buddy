@@ -27,7 +27,7 @@ var fishingLuck: number, epicFishingLuck: number;
 
 export class petCalculator {
     messageBotReply: Message | undefined;
-    timeToDelete = Date.now() + (1000 * 60);
+    timeToDelete = Date.now() + (1000 * 60 * 5);
     color = Math.round(Math.random() * 0xffffff);
     isRounded = false;
     isDefaultLang = true;

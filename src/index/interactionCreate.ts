@@ -156,7 +156,7 @@ export async function interactionCreate(interaction: Interaction) {
             }
             
             interaction.deferUpdate();
-            petCalculator.timeToDelete = Date.now() + (1000 * 60);
+            petCalculator.timeToDelete = Date.now() + (1000 * 60 * 5);
             return;
         });
     }
