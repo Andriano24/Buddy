@@ -1,10 +1,5 @@
 import MessageContent from "../../types/messageContent";
 import guildSchema from "../../schemas/guild";
-import english from "../../languages/english.json";
-import greek from "../../languages/greek.json";
-import spanish from "../../languages/spanish.json";
-import italian from "../../languages/italian.json";
-import german from "../../languages/german.json";
 import languageSet from "../../index/languageSet";
 
 export default { base }
@@ -41,6 +36,9 @@ function base(messageContent: MessageContent) {
         }
         else if (args[0] == "german") {
             guild.language = "german";
+        }
+        else if (args[0] == "polish") {
+            guild.language = "polish"
         }
         else {
             message.reply({ content: `${language.LanguageChange.noAvailableLanguage}`, allowedMentions: { repliedUser: false } });

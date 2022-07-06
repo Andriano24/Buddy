@@ -1,0 +1,87 @@
+{
+    "Bot": {
+        "error": "Wystąpił błąd",
+        "noPermissions": "Nie masz uprawnień, aby to zrobić",
+        "commandNotFound": "Nie znaleziono polecenia",
+        "commandNotAvailable": "Polecenie jeszcze niedostępne"
+    },
+    "PetCalculator": {
+        "wrongFormat": [
+            "Zły format! Prawidłowy format to",
+            "petstats `[Siła] [Inteligencja] [Zręczność] [Wola] [Moc]`"
+        ],
+        "wrongFormatExtra": [
+            "Zły format! Prawidłowy format to",
+            "petstats `[Siła] [Inteligencja] [Zręczność] [Wola] [Moc] [Numer Daru] [Numer Dawcy] [Numer Przynoszący Bólu]`"
+        ],
+        "wrongStats": "Złe statystyki! Żadna statystyka nie może przekraczać 600 lub być mniejsza niż 0",
+        "or": "lub",
+        "wrongStatsExtra": "Złe statystyki! Żadna statystyka nie może przekraczać 600 lub być mniejsza niż 0, żadna liczba daru/dawcy/przynoszącego ból nie może przekraczać 6 lub być mniejsza niż 0, a ich podsumowanie nie może przekraczać 6",
+        "strength": "Siła",
+        "intellect": "Inteligencja",
+        "agility": "Zręczność",
+        "will": "Wola",
+        "power": "Moc",
+        "petStats": "Statystyki Zwierzaka",
+        "moreStats": "Więcej Statystyk",
+        "baseTalents": "Baza Talentów",
+        "damageTalents": "Talenty Obrażeń",
+        "dealer": "Dar",
+        "giver": "Dawca",
+        "bringer": "Przynoszący Ból",
+        "totalDamage": "Łączna ilość obrażeń",
+        "resistTalents": "Talenty oporu",
+        "ward": "Czar",
+        "proof": "Odporny na zaklęcia",
+        "defy": "Ignorujący zaklęcia",
+        "accuracyTalents": "Talenty Celności",
+        "sniper": "Strzelec",
+        "shot": "Strzał",
+        "eye": "Oko",
+        "pierceTalents": "Talenty Przebicia",
+        "armorBreaker": "Łamacz Zbroi",
+        "armorPiercer": "Widelczyki Zbroi",
+        "moreTalents": "Więcej Talentów",
+        "critTalents": "Talenty punktów Krytycznych",
+        "schoolAssailant": "Wojownik",
+        "schoolStriker": "Pałkarz",
+        "criticalHitter": "Naczelny Krytyk",
+        "criticalStriker": "Krytyk",
+        "blockTalents": "Talenty Bloku",
+        "blocker": "Blokada",
+        "defender": "Obrońca",
+        "healthTalents": "Talenty Leczenia",
+        "healer": "Pomoc Lekarska",
+        "healthy": "Zdrowy",
+        "lively": "Żywy",
+        "medic": "Medyk",
+        "healthAdd": "Więcej Życia",
+        "healthBoost": "Zastrzyk Życia",
+        "healthBounty": "Bonus Życia",
+        "healthGift": "Prezent Życia",
+        "stunTalents": "Talenty Ogłuszenia",
+        "stunRecalcitrant": "Ledwo Możliwy Do Ogłuszenia",
+        "stunResistance": "Trudny Do Ogłuszenia",
+        "fishingLuckTalents": "Talenty Szczęścia Wędkarskiego ",
+        "fishingLuck": "Szczęście Wędkarskie",
+        "epicFishingLuck": "Epickie Szczęście Wędkarskie",
+        "embedTitle": "KALKULATOR STATYSTYK ZWIERZAKÓW WIZARD101",
+        "rounding": "Zaokrąglanie"
+    },
+    "LanguageChange": {
+        "wrongFormat": [
+            "Zły format! Prawidłowy format to",
+            "language `wybrany język`"
+        ],
+        "noAvailableLanguage": "Podane argumenty nie pasują do żadnego dostępnego języka",
+        "languageChanged": "Język został pomyślnie zmieniony"
+    },
+    "PrefixChange": {
+        "wrongFormat": [
+            "Zły format! Prawidłowy format to",
+            "prefix `wybrany prefiks`"
+        ],
+        "samePrefix": "Bot ma już ten sam prefix",
+        "prefixChanged": "Zmieniono prefix bota na"
+    }
+}

@@ -4,6 +4,7 @@ import greek from "../languages/greek.json";
 import spanish from "../languages/spanish.json";
 import italian from "../languages/italian.json";
 import german from "../languages/german.json";
+import polish from "../languages/polish.json";
 
 export default languageSet;
 
@@ -19,6 +20,9 @@ function languageSet(lang: string): Language {
     }
     else if (lang == "german") {
         return Object.assign({}, german);
+    }
+    else if (lang == "polish") {
+        return Object.assign({}, polish);
     }
     return Object.assign({}, english);
 }
