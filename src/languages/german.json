@@ -8,7 +8,7 @@
     "PetCalculator": {
         "wrongFormat": [
             "Falsches Format! Das richtige format ist",
-            "petstats `[Stärke] [Intelligenz] [Geschick] [Wille]`"
+            "petstats `[Stärke] [Intelligenz] [Geschick] [Wille] [Power]`"
         ],
         "wrongFormatExtra": [
             "Falsches Format! Das richtige format ist",
