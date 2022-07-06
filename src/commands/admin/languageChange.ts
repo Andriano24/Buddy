@@ -22,29 +22,29 @@ function base(messageContent: MessageContent) {
             return;
         }
 
-        if (args[0] == "english") {
+        if (args[0] == "english" || args[0] == "en") {
             guild.language = "english";
         }
-        else if (args[0] == "greek") {
+        else if (args[0] == "greek" || args[0] == "gr") {
             guild.language = "greek";
         }
-        else if (args[0] == "spanish") {
+        else if (args[0] == "spanish" || args[0] == "es") {
             guild.language = "spanish";
         }
-        else if (args[0] == "italian") {
+        else if (args[0] == "italian" || args[0] == "it") {
             guild.language = "italian";
         }
-        else if (args[0] == "german") {
+        else if (args[0] == "german" || args[0] == "de") {
             guild.language = "german";
         }
-        else if (args[0] == "polish") {
-            guild.language = "polish"
+        else if (args[0] == "polish" || args[0] == "pl") {
+            guild.language = "polish";
         }
-        else if (args[0] == "slovak") {
-            guild.language = "slovak"
+        else if (args[0] == "slovak" || args[0] == "sl") {
+            guild.language = "slovak";
         }
-        else if (args[0] == "czech") {
-            guild.language = "czech"
+        else if (args[0] == "czech" || args[0] == "cz") {
+            guild.language = "czech";
         }
         else {
             message.reply({ content: `${language.LanguageChange.noAvailableLanguage}`, allowedMentions: { repliedUser: false } });

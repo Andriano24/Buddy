@@ -11,25 +11,25 @@ import czech from "../languages/czech.json";
 export default languageSet;
 
 function languageSet(lang: string): Language {
-    if (lang == "greek") {
+    if (lang == "greek" || lang == "gr") {
         return Object.assign({}, greek);
     }
-    else if (lang == "spanish") {
+    else if (lang == "spanish" || lang == "es") {
         return Object.assign({}, spanish);
     }
-    else if (lang == "italian") {
+    else if (lang == "italian" || lang == "it") {
         return Object.assign({}, italian);
     }
-    else if (lang == "german") {
+    else if (lang == "german" || lang == "de") {
         return Object.assign({}, german);
     }
-    else if (lang == "polish") {
+    else if (lang == "polish" || lang == "pl") {
         return Object.assign({}, polish);
     }
-    else if (lang == "slovak") {
+    else if (lang == "slovak" || lang == "sl") {
         return Object.assign({}, slovak);
     }
-    else if (lang == "czech") {
+    else if (lang == "czech" || lang == "cz") {
         return Object.assign({}, czech);
     }
 
